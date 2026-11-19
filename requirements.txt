@@ -1,0 +1,5 @@
+# Versions used for the initial extracellular pilot (Python 3.11).
+numpy==2.4.6
+scipy==1.17.1
+h5py==3.16.0
+matplotlib==3.11.2

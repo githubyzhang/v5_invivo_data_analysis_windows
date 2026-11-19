@@ -1,0 +1,23 @@
+# Local Python environment and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Editor and operating-system files
+.idea/
+.DS_Store
+._*
+
+# Local recordings and generated analysis outputs
+/data/
+/results/
+
+# Local environment configuration
+.env
+.env.*
+!.env.example
