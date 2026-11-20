@@ -40,9 +40,10 @@ def flat_mask(x, min_run=10):
     x = np.asarray(x)
     edges = np.r_[0, np.flatnonzero(x[1:] != x[:-1]) + 1, len(x)]
     mask = np.zeros(len(x), dtype=bool)
-    for a, b in zip(edges[:-1], edges[1:]):
-        if b - a >= min_run:
-            mask[a:b] = True
+    # Select long runs in NumPy before visiting intervals. Most stored samples
+    # differ from their neighbors; iterating every short run dominates full runs.
+    for j in np.flatnonzero(np.diff(edges) >= min_run):
+        mask[edges[j]:edges[j + 1]] = True
     return mask
 
 

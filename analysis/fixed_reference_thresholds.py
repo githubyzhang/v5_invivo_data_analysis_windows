@@ -95,8 +95,9 @@ def reference_plots(rec,accepted,out):
     (out/f'extra{rec}_reference_selection.json').write_text(json.dumps(selection,indent=2)+'\n')
 
 
-def target(rec,start,stable,threshold,out):
-    name,old,flags=prior(rec,start);dest=out/name;dest.mkdir()
+def target(rec,start,stable,threshold,out, *, prior_paths=None):
+    name,old,flags=prior(rec,start) if prior_paths is None else prior_paths
+    dest=out/name;dest.mkdir()
     oldd=np.load(old/'diagnostics.npz');shared=np.load(flags/'flags_and_evidence.npz')['mask_b3_h6_f50_g20']
     n=5*FS;lo=start*FS;core=slice(CONTEXT,CONTEXT+n)
     sigmas=np.full((3,2048,5),np.nan);support=np.zeros((2048,5),bool)

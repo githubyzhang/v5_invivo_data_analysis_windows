@@ -1,0 +1,12 @@
+{
+  "source": "User-exported waveform labels, verified against 42 focused-review event identities",
+  "schema": "ma50-review-v1",
+  "sha256": "0897866af07f31d0696540892f5e2ddf7a7375816cdb4852550e6f046f6a87b5",
+  "counts": {
+    "plausible eAP": 38,
+    "uncertain": 3,
+    "likely artifact": 1
+  },
+  "sampling": "Deliberately stratified near-threshold / large-amplitude agreement and disagreement examples; not a population accuracy sample",
+  "reference_window_acceptance": "not collected in this export"
+}
