@@ -36,7 +36,7 @@ def controlled_scales(ys, invalid):
     """Both estimators use exactly the same unmasked data; no zero-scale fallback."""
     n=len(invalid)
     nw=(n+FS-1)//FS
-    scales={m:np.full(nw,np.nan) for m in METHODS}
+    scales={f+'_'+est:np.full(nw,np.nan) for f in ys for est in ['rms','mad']}
     good_counts=np.zeros(nw,dtype=int)
     for w,a in enumerate(range(0,n,FS)):
         b=min(n,a+FS)
@@ -88,12 +88,16 @@ def event_metrics(arr,start,n,exposure):
             'largest_10ms_bin_fraction':float(counts[peak]/len(arr)) if len(arr) else 0}
 
 
-def run_segment(source,start_s,duration,out):
+def run_segment(source,start_s,duration,out, *, filter_names=None, transform=None, waveform_reviewer=None):
+    filters = FILTERS if filter_names is None else list(filter_names)
+    methods = [f+'_'+est for f in filters for est in ['rms','mad']]
+    transform = residuals if transform is None else transform
+    waveform_reviewer = review_waveforms if waveform_reviewer is None else waveform_reviewer
     start=round(start_s*FS); n=round(duration*FS)
     out.mkdir()
     nw=(n+FS-1)//FS
-    scales={m:np.full((2048,nw),np.nan) for m in METHODS}
-    seeds={m:[] for m in METHODS}
+    scales={m:np.full((2048,nw),np.nan) for m in methods}
+    seeds={m:[] for m in methods}
     guard_counts=np.zeros(2048,dtype=int)
     flat_counts=np.zeros(2048,dtype=int)
     exposures=np.zeros(2048)
@@ -121,13 +125,13 @@ def run_segment(source,start_s,duration,out):
                 flat=flat_mask(raw)
                 bad=dilate(flat,GUARD)[core]
                 flat_counts[ch]=flat[core].sum(); guard_counts[ch]=bad.sum()
-                padded=residuals(raw)
+                padded=transform(raw)
                 ys={f:y[core] for f,y in padded.items()}
                 sigma,common,good_counts=controlled_scales(ys,bad)
                 common_support[ch]=common
                 exposures[ch]=good_counts[common].sum()/FS
                 allowed=(~bad)&common[np.arange(n)//FS]
-                for f in FILTERS:
+                for f in filters:
                     # Detect with real context, then keep only peaks inside the core.
                     peaks=find_peaks(-padded[f])[0]-CONTEXT
                     peaks=peaks[(peaks>=0)&(peaks<n)]
@@ -143,7 +147,7 @@ def run_segment(source,start_s,duration,out):
             if batch%512==0:
                 print(f'{out.name}: channels {batch}–{batch+63}',flush=True)
         events={}; metrics={}; floors={}
-        for method in METHODS:
+        for method in methods:
             floors[method]=np.array([np.median(col[np.isfinite(col)]) if np.isfinite(col).any() else np.nan
                                      for col in scales[method].T])
             rows=[]; floor_removed=0
@@ -162,10 +166,10 @@ def run_segment(source,start_s,duration,out):
                       ((int(ch),int(p),a,t) for ch,p,a,t in arr))
         pairs={}
         for est in ['rms','mad']:
-            for alt in ['ma100','hp300']:
+            for alt in [f for f in filters if f != 'ma200']:
                 a,b='ma200_'+est,alt+'_'+est
                 pairs[a+'__'+b]=compare_events(events[a],events[b])
-        for f in FILTERS:
+        for f in filters:
             a,b=f+'_rms',f+'_mad'
             pairs[a+'__'+b]=compare_events(events[a],events[b])
         np.savez_compressed(out/'diagnostics.npz',**{'sigma_'+k:v for k,v in scales.items()},
@@ -180,7 +184,7 @@ def run_segment(source,start_s,duration,out):
                            'methods':metrics,'comparisons':pairs,
                            'duration_wall_s':time.perf_counter()-begin})
         (out/'summary.json').write_text(json.dumps(provenance,indent=2,allow_nan=False)+'\n')
-        review_waveforms(ds,events,out,start,n)
+        waveform_reviewer(ds,events,out,start,n)
     print(f'{out.name}: done; usable {provenance["usable_fraction"]:.2%}',flush=True)
     return provenance
 
