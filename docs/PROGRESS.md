@@ -1,6 +1,8 @@
-# Progress and experiment history
+# Investigation history through 2026-11-20
 
-## Current priority
+Historical snapshot consolidated before the documentation reorganization. This is an evidence ledger, not the current tracker. For present status and open work, use the [roadmap](development/roadmap.md); for commands, use [setup](development/setup.md). Test counts below describe their respective rounds, not checks rerun today. Earlier experiments retain their original scope and defaults.
+
+## Delivery decision at this checkpoint
 
 On 2026-11-20, the user chose adaptive thresholds as the default, retained fixed-reference thresholds as an option, and prioritized finishing detection and saving candidates for extra_4 and extra_5. MA50 is the practical baseline-subtraction choice. extra_6 is excluded from this delivery.
 
@@ -17,9 +19,9 @@ Both recordings were processed across all 2,048 channels and 3,000,000 samples p
 
 Each recording has 614,400 nominal channel-seconds before quality exclusions. Counts describe candidate events, not confirmed eAPs or distinct neurons. Different recording conditions and observation support prevent interpreting the count difference as a biological effect.
 
-The [saved-file audit](../results/spike_detection_ma50_adaptive/validation.json) passed for both files: output hashes, source metadata, code hashes, event ordering/spacing, thresholds, flat guards and warning annotations. Per recording, 20 event amplitudes and six noise windows were checked against the source, and all saved per-second median floors were recomputed. These checks verify implementation consistency, not biological accuracy or an independent full re-detection. All 32 automated tests also pass.
+The [saved-file audit](../results/spike_detection_ma50_adaptive/validation.json) passed for both files: output hashes, source metadata, code hashes, event ordering/spacing, thresholds, flat guards and warning annotations. Per recording, 20 event amplitudes and six noise windows were checked against the source, and all saved per-second median floors were recomputed. These checks verify implementation consistency, not biological accuracy or an independent full re-detection. All 32 automated tests passed at that delivery checkpoint.
 
-Shared-disturbance assessment covers only 35 of 300 nominal seconds in each recording. The remaining times are explicitly unassessed. The ±10/±20 ms warnings label 67/80 candidates in extra_4 and 19/22 in extra_5; these events remain saved. Waveform arrays are not embedded; sample indices allow retrieval from the original recordings. Results remain local and Git-ignored; code, documentation and the user-label export are ready for version control.
+Shared-disturbance assessment covers only 35 of 300 nominal seconds in each recording. The remaining times are explicitly unassessed. The ±10/±20 ms warnings label 67/80 candidates in extra_4 and 19/22 in extra_5; these events remain saved. Waveform arrays are not embedded; sample indices allow retrieval from the original recordings. Results remain local and Git-ignored; code, documentation and the user-label export were subsequently included in the v1 pipeline checkpoint (`2bffaf5`).
 
 ## Completed investigations
 
@@ -50,13 +52,13 @@ Counts below are from the matched reference-eligible subset, not the completed a
 
 The user labeled all 14 adaptive-only review examples plausible eAPs; fixed-only examples included ten plausible eAPs, three uncertain and one likely artifact. This motivated retaining both options with adaptive as default, rather than selecting a method by total count.
 
-## Current implementation and remaining scope
+## Implementation scope at this checkpoint
 
 `analysis/detect_recordings.py` provides bounded-memory full-recording processing, full-recording per-channel peak spacing, explicit partial-window handling, both threshold modes and validated HDF5 output. Synthetic tests cover cross-boundary competition, long flat runs, final partial windows and agreement with a whole-signal calculation. Earlier experiment scripts remain available for reproduction.
 
 The default pipeline excludes suspected-flat guards and unavailable noise windows. Shared-disturbance warnings are imported for already evaluated intervals only; full-recording shared-warning coverage remains unfinished. Fast-noise correction, stimulation-period analysis, spike sorting, spatial deduplication and full waveform export are not part of this delivery.
 
-Next analysis should start from the saved candidates and their coverage/quality metadata rather than reopening the threshold-selection study unless new evidence warrants it.
+At this checkpoint, the recommended next activity was analysis of saved candidates and coverage metadata; the activity report below followed. This was not a sorting-input contract.
 
 ## V1 interface and viewer handoff
 
@@ -70,4 +72,4 @@ Descriptive analysis is saved in [the local activity report](../results/extra45_
 
 The report includes complete rasters, exposure-normalized candidate rates, time trends, channel concentration, a channel/time heatmap, raw traces with detections, aligned waveform examples and threshold/coverage distributions. No detection defaults or saved candidates changed. extra_4's top 205 channels contain 90.7% of candidates versus 69.4% in extra_5. extra_5's five busiest seconds contain 17.1% of its candidates; a 1 ms bin at 276.887 s contains candidates on 1,479 channels and is outside the existing shared-warning assessment. These are descriptive findings, not confirmed neural effects or artifact classifications.
 
-Reproduce numerical analysis and figures with `.venv/bin/python analysis/activity_report.py`; generate the HTML report and reconcile saved results with `.venv/bin/python analysis/finalize_activity_report.py`. Waveform regeneration requires the source drive. `analysis/activity_slides.mjs` is the authoring callback for the connected presentation; slide content is in the output folder's `slides.json`.
+The activity report was committed as `1eed96a` (`extracellular detected spikes analysis`). See [setup](development/setup.md) for reproduction commands and presentation limitations.

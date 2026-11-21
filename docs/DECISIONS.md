@@ -1,8 +1,10 @@
 # Decisions and current defaults
 
+This reference owns adopted detector choices and their rationale. The [roadmap](development/roadmap.md) owns delivery status and open proposals; sorting recommendations do not change these defaults.
+
 ## Adopted on 2026-11-20
 
-The user chose to retain both threshold options and make **adaptive thresholds the default**. The first delivery priority is a usable detection pipeline and saved candidates for extra_4 and extra_5. Investigation of threshold variants is no longer a prerequisite for producing those outputs.
+The user chose to retain both threshold options and make **adaptive thresholds the default**. The initial delivery priority was a usable detection pipeline and saved candidates for extra_4 and extra_5. Further threshold investigation was not a prerequisite for that delivery.
 
 | Setting | Current choice |
 |---|---|

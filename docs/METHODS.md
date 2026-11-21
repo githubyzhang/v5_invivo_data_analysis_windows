@@ -43,7 +43,7 @@ Exact repeated stored values lasting at least 10 samples are marked per channel.
 
 Shared-disturbance research combined same-sign baseline changes and high-pass excursions across many eligible channels, with 10 or 20 ms padding. These flags mean that a candidate warrants disturbance review, not that it is a proven false spike.
 
-The full runner imports the existing frozen 10/20 ms annotations only for intervals already evaluated. Their source metadata and mask agreement are checked. Other times have `shared_warning_available = false`; a false warning flag there must not be interpreted as a clean-data finding. No global warning removes candidates by default. Full-recording shared-disturbance evaluation is deferred and clearly distinguished from completed spike detection.
+The project batch shortcut imports existing frozen 10/20 ms annotations only for intervals already evaluated. Their source metadata and mask agreement are checked. Generic `--input` runs do not import these project-specific annotations. Other times have `shared_warning_available = false`; a false warning flag there must not be interpreted as a clean-data finding. No global warning removes candidates by default. The [roadmap](development/roadmap.md) tracks work on broader shared-disturbance coverage.
 
 Fast-noise warning experiments did not provide reliable cleanup. No fast-noise subtraction, automatic local-warning exclusion, or stimulation-artifact correction is enabled.
 
