@@ -1,0 +1,5 @@
+# Worker resolves exact versions and records environment-lock.txt before running.
+# Install the appropriate CUDA-enabled torch build first; see docs/ENVIRONMENT.md.
+kilosort>=4,<5
+numpy>=1.26
+h5py>=3.10

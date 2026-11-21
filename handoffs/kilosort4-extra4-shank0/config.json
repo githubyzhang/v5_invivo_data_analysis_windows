@@ -1,0 +1,13 @@
+{
+  "assignment": "extra4_shank0_full_recording_diagnostic_baseline",
+  "data_file": "data/extra4_shank0_float32.bin",
+  "data_dtype": "float32",
+  "byte_order": "little",
+  "shape_samples_channels": [3000000, 512],
+  "physical_fs_hz": 10080,
+  "settings": {"n_chan_bin": 512, "fs": 10000, "nt": 61, "nblocks": 1, "highpass_cutoff": 300, "scale": 1000000},
+  "do_CAR": true,
+  "invert_sign": false,
+  "save_preprocessed_copy": false,
+  "artifact_policy": "Diagnostic baseline: source unchanged, full timeline, no custom mask or zeroing; review quality metadata and document any sensitivity run separately."
+}
