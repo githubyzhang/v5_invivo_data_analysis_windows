@@ -1,6 +1,6 @@
 # Windows setup and evidence recovery
 
-Updated: 2026-11-22. The only active project/repository root is `C:\Projects\invivo_extracellular_data_analysis`. The temporary nested `windows-kilosort` checkout has been flattened without changing Git history. Shared checkpoint: `92da0b2c30c70132a8cd4f44a6bb545e59fc463f`; branch master, no remote. Later local commits retain that ancestry.
+Updated: 2026-11-23. The only active project/repository root is `C:\Projects\invivo_extracellular_data_analysis`. The temporary nested `windows-kilosort` checkout has been flattened without changing Git history. Shared checkpoint: `92da0b2c30c70132a8cd4f44a6bb545e59fc463f`; branch master, no remote. Later local commits retain that ancestry. The current Mac detector now has its own `.venv-detector`, source subset and root launcher; [its integration guide](../CUSTOM_PIPELINE_WINDOWS.md) owns setup and commands. It does not change the Kilosort environments.
 
 ## Local runtime
 
@@ -50,7 +50,7 @@ No original launcher was rerun. It assumes a complete original worker layout/tra
 
 User-supplied source directory (2026-11-22): `C:\DATA\cnea_data\invivo\26-11-06\0192`. Treat its contents as read-only. Read-only HDF5 header inspection confirms `extra_4_signals.h5`, `extra_5_signals.h5` and `extra_6_signals.h5` each contain float16 `signals` shaped `(2048, 3000000)`. The directory also contains earlier recordings/reference files and injection recordings. Injection-pattern signals have shapes `(2048, 24000000)` and `(2048, 9000000)` and remain separate scope.
 
-These sources make other-shank/extra_5 export possible after pilot review. Header inspection is not a full content/hash verification or confirmation of identity with the Mac sources; establish source hashes and mapping/export checks before new runs. The verified shank0 binary remains the pilot's authoritative input. extra_6 and stimulation-period work remain deferred.
+These sources make other-shank/extra_5 export possible after pilot review. W6 established the full extra_4 HDF5 SHA-256 (`3bedaa51bca65205dcc81e25ef48f249c9f1ea34346f4cfd7327e26269bd9755`) and exact agreement of every mapped shank0 value with the verified pilot binary; native custom-detector arrays also match the Mac fixture. extra_5/6 header inspection alone is not full content/hash verification; establish their source hashes and mapping/export checks before new runs. The shank0 binary remains the pilot's authoritative sorting input. extra_6 and stimulation-period work remain deferred.
 
 ## Reproduce targeted Round 1 evidence
 

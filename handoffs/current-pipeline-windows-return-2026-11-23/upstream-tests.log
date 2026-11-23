@@ -1,0 +1,51 @@
+test_crosses_bin_boundary_and_counts_channel_once (test_candidate_coincidence.CoincidenceTests.test_crosses_bin_boundary_and_counts_channel_once) ... ok
+test_half_open_edges_and_last_window (test_candidate_coincidence.CoincidenceTests.test_half_open_edges_and_last_window) ... ok
+test_matches_bruteforce_with_missing_support_and_duplicates (test_candidate_coincidence.CoincidenceTests.test_matches_bruteforce_with_missing_support_and_duplicates) ... ok
+test_no_events_no_support (test_candidate_coincidence.CoincidenceTests.test_no_events_no_support) ... ok
+test_partial_channel_not_counted_in_either_side (test_candidate_coincidence.CoincidenceTests.test_partial_channel_not_counted_in_either_side) ... ok
+test_reject_invalid_ranges (test_candidate_coincidence.CoincidenceTests.test_reject_invalid_ranges) ... ok
+test_sidecar_roundtrip_preserves_input_and_support (test_candidate_coincidence.CoincidenceTests.test_sidecar_roundtrip_preserves_input_and_support) ... ok
+test_both_estimators_exclude_same_invalid_values (test_comparison.ComparisonTests.test_both_estimators_exclude_same_invalid_values) ... ok
+test_common_support_drops_all_methods_when_one_is_unusable (test_comparison.ComparisonTests.test_common_support_drops_all_methods_when_one_is_unusable) ... ok
+test_event_matching_never_crosses_channels (test_comparison.ComparisonTests.test_event_matching_never_crosses_channels) ... ok
+test_matching_is_one_to_one_and_tolerance_is_inclusive (test_comparison.ComparisonTests.test_matching_is_one_to_one_and_tolerance_is_inclusive) ... ok
+test_partial_window_and_exposure_requirement (test_comparison.ComparisonTests.test_partial_window_and_exposure_requirement) ... ok
+test_empty_reference_is_unavailable_not_zero_threshold (test_fixed_reference.FixedReferenceTests.test_empty_reference_is_unavailable_not_zero_threshold) ... ok
+test_rejected_reference_values_do_not_change_calibration (test_fixed_reference.FixedReferenceTests.test_rejected_reference_values_do_not_change_calibration) ... ok
+test_stability_uses_unfloored_scales_and_requires_two_segments (test_fixed_reference.FixedReferenceTests.test_stability_uses_unfloored_scales_and_requires_two_segments) ... ok
+test_empty_groups (test_focused_review.ReviewSelectionTests.test_empty_groups) ... ok
+test_strata_and_no_duplicate_events (test_focused_review.ReviewSelectionTests.test_strata_and_no_duplicate_events) ... ok
+test_overlap_in_same_recording_rejected (test_frozen_guards.IntervalSelectionTests.test_overlap_in_same_recording_rejected) ... ok
+test_touching_intervals_and_different_files_allowed (test_frozen_guards.IntervalSelectionTests.test_touching_intervals_and_different_files_allowed) ... ok
+test_fast_requires_duration_and_eligible_bins (test_local_artifacts.LocalWarningTests.test_fast_requires_duration_and_eligible_bins) ... ok
+test_step_covers_both_bins_with_guard_without_other_channels (test_local_artifacts.LocalWarningTests.test_step_covers_both_bins_with_guard_without_other_channels) ... ok
+test_sustained_keeps_runs_not_isolated_bins (test_local_artifacts.LocalWarningTests.test_sustained_keeps_runs_not_isolated_bins) ... ok
+test_unavailable_reference_cannot_flag_and_collapse_is_separate (test_local_artifacts.LocalWarningTests.test_unavailable_reference_cannot_flag_and_collapse_is_separate) ... ok
+test_all_widths_match_explicit_legacy_alignment (test_ma_windows.MAWindowTests.test_all_widths_match_explicit_legacy_alignment) ... ok
+test_new_filter_participates_in_common_support (test_ma_windows.MAWindowTests.test_new_filter_participates_in_common_support) ... ok
+test_context_removes_artificial_window_boundary (test_pilot.PilotTests.test_context_removes_artificial_window_boundary) ... ok
+test_flat_runs_and_guard (test_pilot.PilotTests.test_flat_runs_and_guard) ... ok
+test_global_spacing_across_windows_and_tail (test_pilot.PilotTests.test_global_spacing_across_windows_and_tail) ... ok
+test_mask_before_spacing_and_no_noise_estimate (test_pilot.PilotTests.test_mask_before_spacing_and_no_noise_estimate) ... ok
+test_moving_average_matches_legacy_even_and_odd (test_pilot.PilotTests.test_moving_average_matches_legacy_even_and_odd) ... ok
+test_all_run_lengths_and_boundaries (test_recording_pipeline.FlatRunEquivalenceTests.test_all_run_lengths_and_boundaries) ... ok
+test_cli_requires_explicit_source_and_calibration (test_recording_pipeline.RecordingPipelineTests.test_cli_requires_explicit_source_and_calibration) ... ok
+test_explicit_filename_cli_and_fixed_source_provenance (test_recording_pipeline.RecordingPipelineTests.test_explicit_filename_cli_and_fixed_source_provenance) ... ok
+test_fixed_mode_uses_constant_threshold_and_unavailable_channels (test_recording_pipeline.RecordingPipelineTests.test_fixed_mode_uses_constant_threshold_and_unavailable_channels) ... ok
+test_full_series_oracle_chunk_boundaries_and_partial_tail (test_recording_pipeline.RecordingPipelineTests.test_full_series_oracle_chunk_boundaries_and_partial_tail) ... ok
+test_insufficient_tail_and_interval_merging (test_recording_pipeline.RecordingPipelineTests.test_insufficient_tail_and_interval_merging) ... ok
+test_pipeline_annotation_failure_and_explicit_disable (test_recording_pipeline.RecordingPipelineTests.test_pipeline_annotation_failure_and_explicit_disable) ... input noise channels 0:2/2
+input candidates channels 0:2/2; saved 0
+input noise channels 0:2/2
+input candidates channels 0:2/2; saved 0
+ok
+test_baseline_covers_both_bins_and_guard (test_shared_artifacts.SharedFlagTests.test_baseline_covers_both_bins_and_guard) ... ok
+test_broadband_guard_clips_edges_and_union_overlaps (test_shared_artifacts.SharedFlagTests.test_broadband_guard_clips_edges_and_union_overlaps) ... ok
+test_half_open_intervals (test_shared_artifacts.SharedFlagTests.test_half_open_intervals) ... ok
+test_more_stringent_quorum_and_larger_guard_are_monotonic (test_shared_artifacts.SharedFlagTests.test_more_stringent_quorum_and_larger_guard_are_monotonic) ... ok
+test_same_sign_quorum_and_minimum_support (test_shared_artifacts.SharedFlagTests.test_same_sign_quorum_and_minimum_support) ... ok
+
+----------------------------------------------------------------------
+Ran 42 tests in 0.215s
+
+OK

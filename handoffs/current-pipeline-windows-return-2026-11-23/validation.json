@@ -1,0 +1,91 @@
+{
+  "schema": "windows-custom-pipeline-acceptance-v1",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "versions": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "h5py": "3.16.0",
+    "matplotlib": "3.11.2"
+  },
+  "package_manifest_sha256": "7b6ae7b17c22f3a00d67ccf4e1c0ea5eb6526188ebccd0f3cf684cc96d1911f8",
+  "generating_head": "fbe30269513ed21318efd901afebee3086e755d9",
+  "payloads_verified": 106,
+  "active_source_files_verified": 45,
+  "upstream_tests_passed": 42,
+  "adapter_tests_passed": 3,
+  "reference_fixture_checks_passed": true,
+  "reference_annotation_datasets_exact": {
+    "4": [
+      "events/channel_id",
+      "events/sample_index",
+      "tracks/w1ms/active_channels",
+      "tracks/w1ms/available_intervals",
+      "tracks/w1ms/eligible_channels",
+      "tracks/w1ms/event_available",
+      "tracks/w5ms/active_channels",
+      "tracks/w5ms/available_intervals",
+      "tracks/w5ms/eligible_channels",
+      "tracks/w5ms/event_available",
+      "variants/w1ms_q5/event_warning",
+      "variants/w1ms_q5/intervals",
+      "variants/w5ms_q5/event_warning",
+      "variants/w5ms_q5/intervals"
+    ],
+    "5": [
+      "events/channel_id",
+      "events/sample_index",
+      "tracks/w1ms/active_channels",
+      "tracks/w1ms/available_intervals",
+      "tracks/w1ms/eligible_channels",
+      "tracks/w1ms/event_available",
+      "tracks/w5ms/active_channels",
+      "tracks/w5ms/available_intervals",
+      "tracks/w5ms/eligible_channels",
+      "tracks/w5ms/event_available",
+      "variants/w1ms_q5/event_warning",
+      "variants/w1ms_q5/intervals",
+      "variants/w5ms_q5/event_warning",
+      "variants/w5ms_q5/intervals"
+    ]
+  },
+  "native_extra4_candidates": 115992,
+  "native_extra4_datasets_exact": [
+    "noise/mad",
+    "noise/median_floor",
+    "noise/threshold",
+    "quality/flat_guard_intervals",
+    "quality/reference_eligible",
+    "quality/usable_samples_per_channel_window",
+    "quality/valid_noise_window",
+    "spikes/channel_id",
+    "spikes/channel_offsets",
+    "spikes/counts_per_channel",
+    "spikes/negative_amplitude",
+    "spikes/sample_index",
+    "spikes/threshold",
+    "spikes/time_s"
+  ],
+  "intentionally_unavailable_native_signal_warning_datasets": [
+    "spikes/shared_warning_available",
+    "spikes/shared10_warning",
+    "spikes/shared20_warning",
+    "quality/shared_available_intervals",
+    "quality/shared10_intervals",
+    "quality/shared20_intervals"
+  ],
+  "native_coincidence_datasets_exact": [
+    "warnings/broad/event_warning",
+    "warnings/broad/event_available",
+    "warnings/broad/intervals",
+    "warnings/broad/available_intervals",
+    "warnings/tight/event_warning",
+    "warnings/tight/event_available",
+    "warnings/tight/intervals",
+    "warnings/tight/available_intervals"
+  ],
+  "native_source_sha256": "3bedaa51bca65205dcc81e25ef48f249c9f1ea34346f4cfd7327e26269bd9755",
+  "native_launch_sha256": "8f0eaaacba6f9de9d76aaaf3f2d1348627c86fc7bb239dcd56b6ef9c0b5b38e4",
+  "script_sha256": "a52ffd8c637c0e0f408535f3466b9a2a82116a660c9635363856120c83297583",
+  "interpretation": "Native numerical acceptance for adaptive MA50 extra_4 and both reference annotators; not biological accuracy, fixed-calibration acceptance or native extra_5 redetection"
+}

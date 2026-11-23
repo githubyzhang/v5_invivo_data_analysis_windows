@@ -1,0 +1,10 @@
+{
+  "ADAPTATION_PROVENANCE.json": "67f3262907ce85ba078578c4e112b8532d426564b3de35116474838de44f3f17",
+  "adapter-tests.log": "68b8748cd360d96a6e3e87de1b9460c24ec5e6fee1e14f3015e3e061d718b70f",
+  "kilosort_annotation_validation.json": "9fd51ac3181e337ea8e244633f12d840e34fce9fbfe7d4cfd92dc5095695cf67",
+  "pip-check.log": "672aec65a45bed50e70229c70934a7eebf0462595c459b83023027645d57cccf",
+  "reference-fixtures.log": "3e29f147bf76ea825027c7e1c18e81d8773f13edc52d08e3a3be823000d7b133",
+  "RUN_REPORT.md": "d918811947eb9cea5714982d95dffe5c8c2cf7a859f99c6b18a7f4f74adf4f07",
+  "upstream-tests.log": "48bf182ee25382adb98152ae76ffc1997f6218681bea0357dd79aa33a4fcbfc1",
+  "validation.json": "8bb1d618610d0266ee8f9a684c0312ffb907a907a8200ec99b4021743c3735ca"
+}

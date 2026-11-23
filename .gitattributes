@@ -1,0 +1,3 @@
+# Preserve exact bytes of the imported, manifest-bound upstream snapshot.
+/custom_pipeline/mac_2026_11_23/** -text
+/handoffs/current-pipeline-windows-return-2026-11-23/** -text

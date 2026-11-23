@@ -1,0 +1,28 @@
+{
+  "schema": "kilosort-external-detector-quality-v1",
+  "input_source": "C:\\DATA\\cnea_data\\invivo\\26-11-06\\0192\\extra_4_signals.h5",
+  "source_sha256": "3bedaa51bca65205dcc81e25ef48f249c9f1ea34346f4cfd7327e26269bd9755",
+  "source_linkage_all_1536000000_values_exact": true,
+  "detector_launch_sha256": "8f0eaaacba6f9de9d76aaaf3f2d1348627c86fc7bb239dcd56b6ef9c0b5b38e4",
+  "script_sha256": "426c73b649f31635f385521c413d62bc067e187195d8473c9afb6c64cf5675fe",
+  "original_events": 39620,
+  "original_clusters": 59,
+  "counts": {
+    "broad_warning": 37,
+    "broad_available": 39601,
+    "tight_warning": 5,
+    "tight_available": 39601,
+    "shared_available": 0,
+    "shared10": 0,
+    "shared20": 0,
+    "peak_channel_flat_guard": 160,
+    "peak_channel_detector_observable": 39405
+  },
+  "event_order_verified": true,
+  "interval_membership_independently_verified": true,
+  "frozen_payloads_unchanged": 169,
+  "original_labels_changed": false,
+  "events_removed": 0,
+  "sorting_rerun": false,
+  "caveat": "Flags transfer by time intervals, not candidate row identity. Global 2048-channel coincidence is not shank-local evidence. Peak-channel observability is not sorted-unit exposure. Unavailable does not mean clean."
+}

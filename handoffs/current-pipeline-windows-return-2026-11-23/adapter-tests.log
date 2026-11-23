@@ -1,0 +1,8 @@
+test_empty_unavailable_and_overlapping_intervals (test_custom_pipeline_adapter.AdapterTests.test_empty_unavailable_and_overlapping_intervals) ... ok
+test_half_open_mapping_does_not_assume_candidate_event_order (test_custom_pipeline_adapter.AdapterTests.test_half_open_mapping_does_not_assume_candidate_event_order) ... ok
+test_output_cannot_target_source_archive_or_existing_result (test_custom_pipeline_adapter.AdapterTests.test_output_cannot_target_source_archive_or_existing_result) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.023s
+
+OK

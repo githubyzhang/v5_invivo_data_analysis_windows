@@ -1,0 +1,15 @@
+# W6 — Current Mac detector Windows acceptance and quality sidecar
+
+Date: 2026-11-23. State: native numerical acceptance complete for adaptive MA50 extra_4, both reference coincidence annotators and a pilot-specific external-quality adapter. Scientific acceptance of sorted units and automatic exclusion remain pending.
+
+Read the Mac START_HERE and verified all 106 payload files with no unexpected payloads. Preserved the full package under ignored `worker_returns/mac-current-pipeline-2026-11-23/received/`; imported an unchanged 45-file source/test/document subset under `custom_pipeline/mac_2026_11_23/`. An upstream hash ledger and byte-preserving Git attributes make the snapshot explicit. Existing historical sources, Kilosort data/results/labels and environments are unchanged.
+
+Created `.venv-detector` using root Python 3.12.10, installing all four requested dependency versions without substitutions and recording a separate Windows lock. The sandbox initially could not resolve the package server; the approved installation succeeded outside it. Added a root launcher with isolated subprocess imports, fresh output paths, full input hashes, logs and completion metadata. No Mac absolute path is used to locate Windows raw recordings.
+
+The full native extra_4 run used 2048 channels and 3,000,000 samples. All 115,992 candidate identities/amplitudes/thresholds, noise estimates, flat guards and exposure arrays match the Mac fixture exactly; named tight/broad coincidence masks and availability also match. Six historical signal-warning arrays intentionally differ: generic Windows input marks them unavailable instead of importing partial Mac-path-bound signal annotations. Both reference extra_4/5 annotators reproduce all saved count tracks, intervals and event masks exactly. 42 upstream tests plus three adapter tests pass, and pip reports no broken requirements.
+
+The Kilosort adapter verifies full HDF5 source hash and every mapped raw value against the pilot binary before joining global time intervals onto sorter events. It writes a separate sidecar: broad/tight warnings cover 37/5 sorter events; 19 have unavailable coincidence assessment; peak-channel guards overlap 160 events, including the prior 131 cluster-36 events. All 169 frozen payloads remain unchanged. No row-level candidate/sorter identity, neuron matching, artifact truth or unit-rate denominator is inferred.
+
+The [integration guide](../../CUSTOM_PIPELINE_WINDOWS.md) owns execution/schema; the [return report](../../../handoffs/current-pipeline-windows-return-2026-11-23/RUN_REPORT.md) records exact commands, hashes, limits and validation evidence. The [local review](../../../results/custom_detector/windows_integration_review/index.html) summarizes both workflows. Native full extra_5 redetection, fixed calibration migration, extra_6/stimulation handling and full-recording signal-warning assessment remain deferred. No commit, push or communication to Mac was performed.
+
+Next: review external annotations alongside the pending W5 proposals and design a Kilosort-specific clipping/observability policy before changing sorting inputs or accepting a curated unit set.
