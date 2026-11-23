@@ -63,3 +63,16 @@ Use root `.venv`; choose a new output name. This reads the verified local binary
 ```
 
 The mechanical generator does not make curation decisions. Complete visual review, add findings/proposals and refresh the report manifest before handing off a finished packet. The finalized 2026-11-23 packet is `results/extra4_shank0/pilot01-round1/`; its methodology and file schemas are in [the quality contract](../WINDOWS_QUALITY.md#targeted-round-1-raw-review).
+## Reproduce Round 2 evidence
+
+Use a fresh output path for every execution. The completed reviewed packet is `results/extra4_shank0/pilot01-round2-reviewed`; `pilot01-round2` is an intermediate rendering. From the project root:
+
+```powershell
+$env:MPLCONFIGDIR = Join-Path $PWD 'results/matplotlib-cache'
+& ./.venv/Scripts/python.exe -B scripts/review_pilot_round2.py --evidence worker_returns/extra4_shank0/pilot01/received --binary data/extra4_shank0_float32.bin --output results/extra4_shank0/pilot01-round2-new --source-h5 C:/DATA/cnea_data/invivo/26-11-06/0192/extra_4_signals.h5
+& ./.venv/Scripts/python.exe -B scripts/validate_round2_review.py --report results/extra4_shank0/pilot01-round2-new --evidence worker_returns/extra4_shank0/pilot01/received --binary data/extra4_shank0_float32.bin
+& ./.venv/Scripts/python.exe -B scripts/review_pilot_clipping_guard.py --evidence worker_returns/extra4_shank0/pilot01/received --binary data/extra4_shank0_float32.bin --output results/extra4_shank0/pilot01-round2-new/clipping-guard
+& ./.venv/Scripts/python.exe -B -m unittest discover -s tests -p test_round2_review.py
+```
+
+Run the independent audit before adding the guard supplement or reviewed prose. Each refuses overwriting its existing destination. The HDF5 option performs a bounded read-only source comparison, not full-source hashing. Guard replay imports the inherited flat-mask helpers; it does not run the Mac detector or change Kilosort settings. After visual review, add findings and pending proposals separately, then refresh the root SHA-256 manifest recursively to include every file except the root manifest itself. The [quality contract](../WINDOWS_QUALITY.md#round-2-pair-disturbance-and-guard-review) defines the evidence and its limits.

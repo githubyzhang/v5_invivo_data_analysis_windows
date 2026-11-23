@@ -1,0 +1,13 @@
+# W5 — Pilot Round 2 pair review and clipping-guard reconciliation
+
+Date: 2026-11-23. State: diagnostic review complete; proposals pending human acceptance. No sorting, curation, masking or channel exclusion was performed.
+
+Implemented seven pair comparisons, multichannel feature views, cluster-35 structure review, all-channel raw SD/zero audit, disturbance context and cluster-36/channel-248 inspection. The reviewed [packet](../../../results/extra4_shank0/pilot01-round2-reviewed/index.html) contains 14 main figures plus a guard figure, numeric evidence, raw windows and provenance. [Findings](../../reviews/2026-11-23-kilosort-round2-findings.md) own interpretations; the [quality contract](../../WINDOWS_QUALITY.md#round-2-pair-disturbance-and-guard-review) owns methods and output definitions.
+
+No pair supports an adopted merge, and cluster 35 does not support an adopted split. The specific 5/6 overlap concern is reduced by multichannel features; cluster 2 and sparse populations remain unresolved. The full b248/global1921 trace is 60.9167% zero and otherwise negative, exactly matching the corresponding original HDF5 channel. This establishes that the anomaly precedes Windows export, without establishing its acquisition/conversion mechanism or full-source identity.
+
+The user identified the earlier per-channel clipping guard during review. Reused its actual inherited ≥10-sample flat-run / ±500-sample helpers diagnostically, reconciling 18 full raw channels with the frozen guard masks and an independent interval-union calculation. b248 is 79.7529% guarded; 131/339 cluster-36 centers overlap its peak-channel guard. Propose a hold on cluster 36 and a Kilosort-specific observability-policy review before unit acceptance/expansion. The historical electrode mask is not silently applied to multichannel sorted units. A controlled bad-channel sensitivity comparison is now a concrete hypothesis; no rerun was launched, and a future comparison must separate channel-selection effects from the repaired FAISS environment.
+
+Validation: 3,607 raw windows match independent rereads exactly, all seven cross-lag lists match brute force, mapped feature projections and all-channel zero counts pass, and all 59 cluster disturbance counts agree. The raw SD scan reproduces all 12 frozen screen seconds. Four synthetic algorithm tests pass. All 169 frozen return payloads and raw binary hash match before/after; source HDF5 remained read-only. All 15 figures were inspected. Final recursive manifest and report links were checked after adding findings/proposals/guard evidence.
+
+Next: user review of the combined proposal ledger and guard-policy direction. Keep all original labels/events and the previous Round 1 record. No commit or push was made.
