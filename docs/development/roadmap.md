@@ -1,31 +1,25 @@
-# Roadmap and current status
+# Windows Kilosort4 roadmap
 
-Updated: 2026-11-21. This is the single current-status tracker.
+Updated: 2026-11-22. This is the single current tracker. The repository, data, runtimes and viewers now live directly under `C:\Projects\invivo_extracellular_data_analysis`; the old sibling folder was removed after complete preservation. Latest evidence: [project review/consolidation](rounds/2026-11-22-02-project-consolidation.md). Commands and actual paths: [Windows setup](windows-setup.md).
 
-## Current checkpoint
+## Adopted direction
 
-The v1 detector and first extra_4/5 activity analysis are complete and committed: `2bffaf5` (pipeline) and `1eed96a` (activity analysis). Detector defaults are governed by [DECISIONS.md](../DECISIONS.md); numerical results and prior checks are preserved in the [investigation history](../PROGRESS.md). Documentation is now organized using the adapted convention in [the documentation map](../README.md).
+Windows independently develops a Kilosort4-centered sorting and neural-activity workflow. Mac continues its custom detector and electrode-level analysis. Shared checkpoint: `92da0b2c30c70132a8cd4f44a6bb545e59fc463f`; Windows repository: independent clone, initially on `master`, with no remote. See `handoffs/windows-kilosort-independent/START_HERE.md` for contract and bootstrap.
 
-| Work | State | Evidence / boundary |
-|---|---|---|
-| Detector comparisons and quiet-reference study | Reviewed; adaptive default adopted | [History](../PROGRESS.md), [decisions](../DECISIONS.md) |
-| Full extra_4/5 detection and event storage | Implemented; saved-file/source checks passed | [Outputs](../OUTPUTS.md), [run audit](../../results/spike_detection_ma50_adaptive/validation.json) |
-| Activity report | Completed; descriptive findings only | [HTML report](../../results/extra45_activity_report/report.html), [report validation](../../results/extra45_activity_report/validation.json), [deck identity](../../results/extra45_activity_report/presentation.json) |
-| Viewer integration handoff | Documented; external viewer implementation not verified here | [Viewer guide](../VIEWER_HANDOFF.md) |
-| Spike sorting | Kilosort4 selected; Windows worker package prepared and export verified | [Worker round](rounds/2026-11-21-01-kilosort-worker-package.md); no sorter run yet |
+## Current evidence
 
-Latest round: [Windows worker preparation](rounds/2026-11-21-01-kilosort-worker-package.md). Earlier work remains in the historical ledger rather than being assigned invented round records.
+extra_4/shank0 baseline completed: 39,620 events / 59 clusters, 24 automated good and 35 mua. Transfer integrity checked on Mac and Windows. Bounded diagnostic review is complete; human curation and scientific acceptance remain pending. Full report, original outputs and locks remain in frozen return storage and the complete `worker_returns/worker-snapshot`. All 127,447 snapshot files match the pre-migration inventory. No extra_5 or other-shank sorting is established by this pilot.
 
-## Next: Windows sorting pilot
+Runtime blocker: Windows Smart App Control blocks the FAISS DLL in both the former and migrated pilot environment. CUDA, Qt6 imports, Phy raw-waveform loading, CPU reports and 34 inherited tests pass. Kilosort imports/new sorting/GUI need resolution of the policy/trusted-package issue. Security settings and package versions were not changed.
 
-The user selected Kilosort4 and authorized a portable worker folder under `/Volumes/YZ/`. Mac remains the research/curation home; the Area-51 Windows desktop runs the bounded job. The first pilot is extra_4, zero-based shank0, all 3,000,000 samples. Legacy spatial mapping and both 30 µm pitches are confirmed. Anatomical direction is not inferred.
+## Next
 
-[Worker instructions](../../handoffs/kilosort4-extra4-shank0/START_HERE.md) own the assignment, preprocessing starting choices, environment requirements and return contract. The verified package is at `/Volumes/YZ/kilosort4-extra4-shank0-worker-2026-11-21/` (about 6.15 GB). Its manifest records completed binary readback and source-value checks. Windows must establish the actual GPU/driver/CUDA combination and exact dependency lock before running. Kilosort4 is selected, but baseline settings and unit labels are not scientifically validated.
+1. Completed: independent root checkout with no remote; local data and rebuilt environments/entry points with unchanged dependencies; relocated viewer working copy; complete worker preserved and old sibling removed. Root launchers and current docs replace old operational paths. Resolve the FAISS policy blocker before new Kilosort execution.
+2. In progress: all 59 clusters have metrics and plots; pending curation queue preserves automated labels. Initial visual review covered new pages for clusters 32–35 and 56–58. Priorities remain 2, 5/12, 26/29, 34/35, boundary-only 37/58, pairs 31/33 and 45/48, and raw channel 248/global1921. Next: raw-waveform and pair/feature review in a separate working copy, then explicit human curation revisions. No relabeling or merge adopted.
+3. Completed for this pilot: [quality contract](../WINDOWS_QUALITY.md) and [locally regenerated report](../../results/extra4_shank0/pilot01-review02-local/index.html). Sensitivity sorting is deferred pending targeted raw/feature review: current screens alone do not justify a masking or threshold change. Generalize the pilot-scoped script before applying it elsewhere.
+4. Expand to other shanks/extra_5 once pilot review supports it and required data are available; retain independent per-recording identities.
+5. Build downstream unit activity summaries with clear uncertainty and curated versus uncurated distinctions.
 
-Continuous signals are the sorting input. Previous detected candidates are comparison evidence only: their 5 ms spacing censors close events and must not bias refractory-quality assessment. Preserve source sample coordinates and review spatial templates, stability, contamination and duplicate clusters. Additional shanks and extra_5 wait for Mac-side review of the pilot return.
+## Deferred / boundaries
 
-## Open research and deferred scope
-
-Full-recording shared-disturbance assessment remains incomplete: existing flags cover only 35/300 nominal seconds per recording. The activity report identifies extra_5 episodes at 154–155 s and 276.887 s for raw-signal review; these are not confirmed artifacts. Decide artifact policy before interpreting affected sorting output.
-
-extra_6, stimulation-period artifact correction, raw uint16 conversion, validated fast-noise removal and cross-recording unit matching remain deferred. Spatial analysis requires verified geometry. Refer to [setup](setup.md) for source availability and run/restart instructions; the external drive must be mounted for waveform work.
+No confirmed cross-recording neuron matching, universal artifact removal or complete neuron recovery. extra_6 and stimulation-period artifact handling remain separate future research. Shared artifact references cover only part of each recording. Preserve all source data and baseline outputs. Coordinate selected fixes/results with Mac without making either workflow depend on the other's milestones.

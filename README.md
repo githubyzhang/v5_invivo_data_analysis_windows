@@ -1,18 +1,15 @@
-# In vivo extracellular spike detection
+# Independent Windows Kilosort4 analysis
 
-Analysis of simultaneous 2,048-channel extracellular recordings. The practical v1 pipeline uses MA50 baseline subtraction and adaptive MAD thresholds with an across-channel median floor; fixed quiet-reference thresholds remain available.
+This is the single Windows project root. It develops Kilosort4 sorting and downstream activity analysis independently of the Mac detector, while preserving common Git history and scientific provenance.
 
-The delivered recording scope is extra_4 and extra_5. Detected events are candidate eAPs, not sorted neurons or validated spike identities. extra_5 followed current-injection experiments; compare recordings separately. extra_6 remains outside this delivery because of its unusually disturbed signals.
+Start with the [roadmap](docs/development/roadmap.md), [Windows setup](docs/development/windows-setup.md), [viewers](docs/development/viewers.md), and [quality-report contract](docs/WINDOWS_QUALITY.md). The [migration handoff](handoffs/windows-kilosort-independent/START_HERE.md) owns the shared data contract. [Documentation conventions](docs/README.md) describe project upkeep.
 
-## Start here
+The preserved extra_4/shank0 pilot has 39,620 events, 59 clusters (24 automated good, 35 mua), with no human curation. Open the [local quality report](results/extra4_shank0/pilot01-review02-local/index.html) or the [frozen RUN_REPORT](worker_returns/extra4_shank0/pilot01/received/RUN_REPORT.md). Original data, output arrays and labels remain unchanged. These local artifacts are ignored by Git.
 
-- [Current status, next action and open decisions](docs/development/roadmap.md)
-- [Setup, detection commands and report reproduction](docs/development/setup.md)
-- [Documentation map and update convention](docs/README.md)
-- [Detection methods](docs/METHODS.md) and [adopted decisions](docs/DECISIONS.md)
-- [Output schema](docs/OUTPUTS.md) and [viewer handoff](docs/VIEWER_HANDOFF.md)
-- [Historical investigations and evidence](docs/PROGRESS.md)
+Data, Python environments and viewer launchers are now inside this root; the old sibling worker is preserved under ignored `worker_returns/worker-snapshot`. The original transfer package remains in `get_started`. No remote is configured and no changes were published.
 
-Source data are converted floating-point HDF5 recordings stored outside the repository. Input filenames are explicit and unrestricted; see the setup guide for `--input` usage and the required `signals` layout. Analysis uses nominal 10,000 Hz by project convention (physical sampling: 10,080 Hz).
+**Runtime status:** CPU reports and Phy raw-waveform loading work, and CUDA checks pass. Windows Smart App Control currently blocks the FAISS DLL needed by Kilosort, including in the old environment. New sorting and the Kilosort GUI await resolution of that system-policy issue; see setup. Security settings have not been changed.
 
-Generated results and the local environment are Git-ignored. Source recordings are read-only. The original `legacy/` code remains a reference. The pipeline does not yet provide spike sorting, spatial deduplication, stimulation-artifact removal or validated fast-noise correction. Shared-disturbance assessment has partial coverage; unassessed intervals must not be interpreted as artifact-free.
+Integer sample indices are authoritative; nominal sampling is 10,000 Hz and physical sampling 10,080 Hz. Automated good labels are not confirmed neurons. No masking, merging, resampling or relabeling has been adopted. Other-shank/extra_5 expansion needs source data and pilot acceptance; extra_6 and stimulation-period handling remain deferred.
+
+Inherited `analysis/`, `legacy/`, `requirements.txt`, detector methods and tests belong to the Mac candidate-detection track. See [its historical progress](docs/PROGRESS.md) and [methods](docs/METHODS.md); those scientific defaults are not Windows sorting defaults.

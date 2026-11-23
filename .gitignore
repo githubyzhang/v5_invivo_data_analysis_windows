@@ -21,3 +21,11 @@ htmlcov/
 .env
 .env.*
 !.env.example
+
+# Windows evidence and environments
+/worker_returns/
+/.python/
+/.venv-*/
+/outputs/
+/viewing/
+/get_started/

@@ -1,5 +1,7 @@
 # Setup and operating instructions
 
+2026-11-22: this page describes the inherited Mac detector. Use [Windows setup](windows-setup.md) for the independent Kilosort workflow; detector defaults are not sorting defaults.
+
 Run commands from the repository root. For current work and pending decisions, see the [roadmap](roadmap.md). Detection definitions belong in [METHODS.md](../METHODS.md); the saved-file contract belongs in [OUTPUTS.md](../OUTPUTS.md).
 
 Use the project-local `.venv`. Dependencies are pinned in `requirements.txt`:

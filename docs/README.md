@@ -1,5 +1,7 @@
 # Documentation map and working convention
 
+2026-11-22: [Windows setup](development/windows-setup.md), [local viewers](development/viewers.md) and the [quality contract](WINDOWS_QUALITY.md) own the independent Kilosort workflow. Existing METHODS, DECISIONS, OUTPUTS, VIEWER_HANDOFF and detector setup describe the inherited Mac detector. The roadmap remains the single current tracker. The [consolidation round](development/rounds/2026-11-22-02-project-consolidation.md) summarizes recovered project history and the migration evidence.
+
 This project adapts the [FMAE documentation workflow reference](documentation-workflow.md). The reference is preserved as supplied; this page describes the conventions actually used here.
 
 ## Where information belongs
