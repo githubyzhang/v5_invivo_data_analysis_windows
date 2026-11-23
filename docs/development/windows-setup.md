@@ -44,4 +44,10 @@ The old sibling worker path is no longer needed. Originals have been preserved i
 
 For future offline environment recreation, `scripts/create_local_environments.py --worker worker_returns/worker-snapshot` requires new destination runtime/environment directories and refuses existing ones. It restores the historical package versions including FAISS 1.16.0, regenerates paths/launchers, and checks archived locks without executing old environments. Apply the FAISS repair above afterward; active and historical locks intentionally differ.
 
-No original launcher was rerun. It assumes a complete original worker layout/transfer manifest; do not run it against the frozen return extraction. Any new sorting requires a distinct run name, resolved settings, source hashes and a recorded hypothesis. Other shanks and extra_5 sources are not in this Windows delivery.
+No original launcher was rerun. It assumes a complete original worker layout/transfer manifest; do not run it against the frozen return extraction. Any new sorting requires a distinct run name, resolved settings, source hashes and a recorded hypothesis.
+
+## Source recordings located on Windows
+
+User-supplied source directory (2026-11-22): `C:\DATA\cnea_data\invivo\26-11-06\0192`. Treat its contents as read-only. Read-only HDF5 header inspection confirms `extra_4_signals.h5`, `extra_5_signals.h5` and `extra_6_signals.h5` each contain float16 `signals` shaped `(2048, 3000000)`. The directory also contains earlier recordings/reference files and injection recordings. Injection-pattern signals have shapes `(2048, 24000000)` and `(2048, 9000000)` and remain separate scope.
+
+These sources make other-shank/extra_5 export possible after pilot review. Header inspection is not a full content/hash verification or confirmation of identity with the Mac sources; establish source hashes and mapping/export checks before new runs. The verified shank0 binary remains the pilot's authoritative input. extra_6 and stimulation-period work remain deferred.
