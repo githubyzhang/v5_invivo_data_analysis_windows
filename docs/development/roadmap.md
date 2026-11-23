@@ -1,6 +1,6 @@
 # Windows Kilosort4 roadmap
 
-Updated: 2026-11-22. This is the single current tracker. The repository, data, runtimes and viewers live directly under `C:\Projects\invivo_extracellular_data_analysis`. The DLL blocker is resolved in the active environments. Latest evidence: [Windows runtime repair](rounds/2026-11-22-03-windows-dll-repair.md); prior [consolidation](rounds/2026-11-22-02-project-consolidation.md). Commands and paths: [Windows setup](windows-setup.md).
+Updated: 2026-11-23. This is the single current tracker. Round 1 targeted pilot review is complete; scientific curation remains pending. Latest evidence: [Round 1 record](rounds/2026-11-23-01-pilot-review-round1.md), [findings/proposals](../reviews/2026-11-23-kilosort-round1-findings.md), and [local evidence packet](../../results/extra4_shank0/pilot01-round1/index.html). The DLL blocker remains resolved. Commands and paths: [Windows setup](windows-setup.md).
 
 ## Adopted direction
 
@@ -15,10 +15,11 @@ Runtime repair validated: active FAISS 1.13.2 replaces the blocked 1.16.0 build.
 ## Next
 
 1. Completed: independent root checkout, local runtime/data/viewers, complete preserved worker and repaired FAISS runtime. Keep active dependency locks distinct from the historical pilot, and use the root viewer launchers. New runs must record the changed FAISS version.
-2. In progress: all 59 clusters have metrics and plots; pending curation queue preserves automated labels. Initial visual review covered new pages for clusters 32–35 and 56–58. Priorities remain 2, 5/12, 26/29, 34/35, boundary-only 37/58, pairs 31/33 and 45/48, and raw channel 248/global1921. Next: raw-waveform and pair/feature review in a separate working copy, then explicit human curation revisions. No relabeling or merge adopted.
-3. Completed for this pilot: [quality contract](../WINDOWS_QUALITY.md) and [locally regenerated report](../../results/extra4_shank0/pilot01-review02-local/index.html). Sensitivity sorting is deferred pending targeted raw/feature review: current screens alone do not justify a masking or threshold change. Generalize the pilot-scoped script before applying it elsewhere.
-4. Expand to other shanks/extra_5 once pilot review supports it. User located full recordings at `C:\DATA\cnea_data\invivo\26-11-06\0192`; extra_4/5/6 signals headers match `(2048, 3000000)` float16. Full source identity/hash checks remain pending before export. Retain independent per-recording identities; see [source setup](windows-setup.md#source-recordings-located-on-windows).
-5. Build downstream unit activity summaries with clear uncertainty and curated versus uncurated distinctions.
+2. Round 1 complete for 34/35, 5/12, 2, 26/29 and 37/58: 1,373 complete raw windows independently checked, all target figures reviewed, nine traceable proposals saved. 34/35/12 remain promising; 5 needs further neighboring-cluster isolation review; 2 is held for isolation concerns; 26/29 are low-count/unresolved. Propose withholding boundary-only 37/58 from future unit summaries, without deleting their events or changing labels. All proposals await human acceptance.
+3. Next: Round 2 examines pairs 31/33 and 45/48, disturbance windows and b248/global1921. Add diagnostic comparisons 5/6, 2 versus 0/1/3, 26/27 and cluster 35's feature structure. The boundary review found b248 exactly zero over samples [0,2171); inspect this alongside the later known flat intervals. No merge, split, time mask or channel exclusion is adopted. After Round 2, review curation proposals with the user and decide whether a separately named sensitivity run is justified.
+4. Completed for this pilot: [quality contract](../WINDOWS_QUALITY.md) and [all-cluster baseline diagnostics](../../results/extra4_shank0/pilot01-review02-local/index.html). Generalize the pilot-scoped scripts before applying them elsewhere.
+5. Expand to other shanks/extra_5 once pilot review supports it. User located full recordings at `C:\DATA\cnea_data\invivo\26-11-06\0192`; extra_4/5/6 signals headers match `(2048, 3000000)` float16. Full source identity/hash checks remain pending before export. Retain independent per-recording identities; see [source setup](windows-setup.md#source-recordings-located-on-windows).
+6. Build downstream unit activity summaries with clear uncertainty and curated versus uncurated distinctions.
 
 ## Deferred / boundaries
 

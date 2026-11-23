@@ -51,3 +51,15 @@ No original launcher was rerun. It assumes a complete original worker layout/tra
 User-supplied source directory (2026-11-22): `C:\DATA\cnea_data\invivo\26-11-06\0192`. Treat its contents as read-only. Read-only HDF5 header inspection confirms `extra_4_signals.h5`, `extra_5_signals.h5` and `extra_6_signals.h5` each contain float16 `signals` shaped `(2048, 3000000)`. The directory also contains earlier recordings/reference files and injection recordings. Injection-pattern signals have shapes `(2048, 24000000)` and `(2048, 9000000)` and remain separate scope.
 
 These sources make other-shank/extra_5 export possible after pilot review. Header inspection is not a full content/hash verification or confirmation of identity with the Mac sources; establish source hashes and mapping/export checks before new runs. The verified shank0 binary remains the pilot's authoritative input. extra_6 and stimulation-period work remain deferred.
+
+## Reproduce targeted Round 1 evidence
+
+Use root `.venv`; choose a new output name. This reads the verified local binary and frozen results without running Kilosort or changing labels:
+
+```powershell
+& ./.venv/Scripts/python.exe -B scripts/review_pilot_round1.py --evidence worker_returns/extra4_shank0/pilot01/received --binary data/extra4_shank0_float32.bin --output results/extra4_shank0/NEW-ROUND1-REVIEW
+& ./.venv/Scripts/python.exe -B scripts/validate_round1_review.py --report results/extra4_shank0/NEW-ROUND1-REVIEW --evidence worker_returns/extra4_shank0/pilot01/received --binary data/extra4_shank0_float32.bin
+& ./.venv/Scripts/python.exe -B -m unittest discover -s tests -p test_round1_review.py
+```
+
+The mechanical generator does not make curation decisions. Complete visual review, add findings/proposals and refresh the report manifest before handing off a finished packet. The finalized 2026-11-23 packet is `results/extra4_shank0/pilot01-round1/`; its methodology and file schemas are in [the quality contract](../WINDOWS_QUALITY.md#targeted-round-1-raw-review).
