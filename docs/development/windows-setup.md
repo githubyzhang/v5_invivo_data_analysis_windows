@@ -1,12 +1,22 @@
 # Windows setup and evidence recovery
 
-Updated: 2026-11-22. The only active project/repository root is `C:\Projects\invivo_extracellular_data_analysis`. The temporary nested `windows-kilosort` checkout has been flattened without changing Git history or uncommitted work. HEAD is `92da0b2c30c70132a8cd4f44a6bb545e59fc463f`, branch master, no remote.
+Updated: 2026-11-22. The only active project/repository root is `C:\Projects\invivo_extracellular_data_analysis`. The temporary nested `windows-kilosort` checkout has been flattened without changing Git history. Shared checkpoint: `92da0b2c30c70132a8cd4f44a6bb545e59fc463f`; branch master, no remote. Later local commits retain that ancestry.
 
 ## Local runtime
 
-`.python` contains Python 3.12.10. `.venv` contains the unchanged pilot package set, `.venv-gui` adds Qt6 while referencing the local pilot packages, and `.venv-phy` contains independent Phy/Qt5 dependencies. Virtual environments were recreated locally, installed distributions copied without dependency resolution, and console launchers regenerated. All three package lists match the former worker and pass pip check. Their frozen lockfiles remain in the preserved evidence. No Mac environment is used.
+`.python` contains Python 3.12.10. `.venv` contains the pilot package set with FAISS changed from 1.16.0 to 1.13.2 to resolve the Windows DLL block. `.venv-gui` adds Qt6 and references those local pilot packages; `.venv-phy` is unchanged. Active sorting and GUI locks are [requirements-windows-lock.txt](../../requirements-windows-lock.txt) and [requirements-windows-gui-lock.txt](../../requirements-windows-gui-lock.txt). Original locks remain frozen in the evidence; do not overwrite them. Both active environments pass pip check. No Mac environment is used.
 
-**Current limitation:** Windows Smart App Control blocks FAISS `_swigfaiss.pyd` in both the original and relocated pilot environments (Code Integrity events 3033/3077). This prevents Kilosort imports and its GUI. CUDA calculations, Qt6 imports, Phy model/raw-waveform loading and CPU quality reports pass. Security policy was not changed, and no sorter run was repeated. Resolve the Windows policy/trusted-package issue before new sorting; do not mistake a passing pip check for a working Kilosort import.
+**Resolved:** Smart App Control rejects the published FAISS 1.16.0 DLL on this machine but accepts the compatible 1.13.2 release. FAISS is the only changed dependency; Kilosort remains 4.1.7 and Torch remains 2.11.0+cu128. Nearest-neighbor results match NumPy, Kilosort's graph calculation and CUDA pass, and the GUI constructs/closes offscreen with explicit local INI settings. Smart App Control remains enabled; no security policy or installed upstream code was patched. This is runtime validation, not proof that future sorting is bitwise equivalent to the original pilot.
+
+To apply the repair after restoring the historical environment:
+
+```powershell
+& ./.venv/Scripts/python.exe -B -m pip install --no-deps faiss-cpu==1.13.2
+& ./.venv/Scripts/python.exe -B -m pip check
+& ./.venv-gui/Scripts/python.exe -B scripts/check_sorting_runtime.py --gui --output results/NEW-RUNTIME-CHECK.json
+```
+
+For offline repair, use the retained wheel under `results/dll-repair-2026-11-22/wheels/` with `--no-index --no-deps`. Its SHA-256 is recorded in the repair round. A full recreation needs the matching CUDA PyTorch distribution from its cu128 index as well as the active lock. Avoid an unpinned FAISS upgrade; preserve changed versions in every future run's environment metadata.
 
 PowerShell from the project root:
 
@@ -19,7 +29,7 @@ $env:MPLCONFIGDIR = Join-Path $PWD 'results/matplotlib-cache'
 & $py -B -m unittest discover -s tests
 ```
 
-Use a new report output path every time. `report-manifest.json` is written last and marks completion. `pilot01-review01` is preserved as initial bootstrap evidence; `pilot01-review02-local` validates the consolidated environment. See [viewer instructions](viewers.md) for the root launch buttons and pending Kilosort limitation.
+Use a new report output path every time. `report-manifest.json` is written last and marks completion. `pilot01-review01` is preserved as initial bootstrap evidence; `pilot01-review02-local` validates the consolidated environment. See [viewer instructions](viewers.md) for the root launch buttons.
 
 ## Storage and preservation
 
@@ -32,6 +42,6 @@ Use a new report output path every time. `report-manifest.json` is written last 
 
 The old sibling worker path is no longer needed. Originals have been preserved in the snapshot rather than discarded. Source data, evidence, outputs, viewer caches and all environments are ignored; source/configuration/docs and small locks are versioned. Do not use old environment executables inside the snapshot. To recover another copy of the frozen pilot, `scripts/recover_pilot.py --worker worker_returns/worker-snapshot --destination worker_returns/NEW-RECOVERY` can be run using root `.venv`.
 
-For future offline environment recreation, `scripts/create_local_environments.py --worker worker_returns/worker-snapshot` requires new destination runtime/environment directories and refuses existing ones. It copies distributions from the intact snapshot, regenerates paths/launchers, and compares against archived locks without executing the old source environments. This preserves versions but cannot resolve an OS policy block. Reinstallation from returned locks into new environments is another recovery option.
+For future offline environment recreation, `scripts/create_local_environments.py --worker worker_returns/worker-snapshot` requires new destination runtime/environment directories and refuses existing ones. It restores the historical package versions including FAISS 1.16.0, regenerates paths/launchers, and checks archived locks without executing old environments. Apply the FAISS repair above afterward; active and historical locks intentionally differ.
 
 No original launcher was rerun. It assumes a complete original worker layout/transfer manifest; do not run it against the frozen return extraction. Any new sorting requires a distinct run name, resolved settings, source hashes and a recorded hypothesis. Other shanks and extra_5 sources are not in this Windows delivery.

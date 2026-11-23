@@ -1,6 +1,6 @@
 # Windows Kilosort4 roadmap
 
-Updated: 2026-11-22. This is the single current tracker. The repository, data, runtimes and viewers now live directly under `C:\Projects\invivo_extracellular_data_analysis`; the old sibling folder was removed after complete preservation. Latest evidence: [project review/consolidation](rounds/2026-11-22-02-project-consolidation.md). Commands and actual paths: [Windows setup](windows-setup.md).
+Updated: 2026-11-22. This is the single current tracker. The repository, data, runtimes and viewers live directly under `C:\Projects\invivo_extracellular_data_analysis`. The DLL blocker is resolved in the active environments. Latest evidence: [Windows runtime repair](rounds/2026-11-22-03-windows-dll-repair.md); prior [consolidation](rounds/2026-11-22-02-project-consolidation.md). Commands and paths: [Windows setup](windows-setup.md).
 
 ## Adopted direction
 
@@ -10,11 +10,11 @@ Windows independently develops a Kilosort4-centered sorting and neural-activity 
 
 extra_4/shank0 baseline completed: 39,620 events / 59 clusters, 24 automated good and 35 mua. Transfer integrity checked on Mac and Windows. Bounded diagnostic review is complete; human curation and scientific acceptance remain pending. Full report, original outputs and locks remain in frozen return storage and the complete `worker_returns/worker-snapshot`. All 127,447 snapshot files match the pre-migration inventory. No extra_5 or other-shank sorting is established by this pilot.
 
-Runtime blocker: Windows Smart App Control blocks the FAISS DLL in both the former and migrated pilot environment. CUDA, Qt6 imports, Phy raw-waveform loading, CPU reports and 34 inherited tests pass. Kilosort imports/new sorting/GUI need resolution of the policy/trusted-package issue. Security settings and package versions were not changed.
+Runtime repair validated: active FAISS 1.13.2 replaces the blocked 1.16.0 build. Kilosort 4.1.7 imports, exact-neighbor/graph checks, CUDA and offscreen GUI startup pass with Smart App Control enabled. Original evidence and locks retain 1.16.0; new active locks record 1.13.2. A scoped launcher adapter now enforces the intended local INI settings. No upstream package code, security policy or scientific defaults were changed; no sorting rerun or full-run equivalence claim.
 
 ## Next
 
-1. Completed: independent root checkout with no remote; local data and rebuilt environments/entry points with unchanged dependencies; relocated viewer working copy; complete worker preserved and old sibling removed. Root launchers and current docs replace old operational paths. Resolve the FAISS policy blocker before new Kilosort execution.
+1. Completed: independent root checkout, local runtime/data/viewers, complete preserved worker and repaired FAISS runtime. Keep active dependency locks distinct from the historical pilot, and use the root viewer launchers. New runs must record the changed FAISS version.
 2. In progress: all 59 clusters have metrics and plots; pending curation queue preserves automated labels. Initial visual review covered new pages for clusters 32–35 and 56–58. Priorities remain 2, 5/12, 26/29, 34/35, boundary-only 37/58, pairs 31/33 and 45/48, and raw channel 248/global1921. Next: raw-waveform and pair/feature review in a separate working copy, then explicit human curation revisions. No relabeling or merge adopted.
 3. Completed for this pilot: [quality contract](../WINDOWS_QUALITY.md) and [locally regenerated report](../../results/extra4_shank0/pilot01-review02-local/index.html). Sensitivity sorting is deferred pending targeted raw/feature review: current screens alone do not justify a masking or threshold change. Generalize the pilot-scoped script before applying it elsewhere.
 4. Expand to other shanks/extra_5 once pilot review supports it and required data are available; retain independent per-recording identities.

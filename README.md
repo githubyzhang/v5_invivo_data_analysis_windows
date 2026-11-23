@@ -8,7 +8,7 @@ The preserved extra_4/shank0 pilot has 39,620 events, 59 clusters (24 automated 
 
 Data, Python environments and viewer launchers are now inside this root; the old sibling worker is preserved under ignored `worker_returns/worker-snapshot`. The original transfer package remains in `get_started`. No remote is configured and no changes were published.
 
-**Runtime status:** CPU reports and Phy raw-waveform loading work, and CUDA checks pass. Windows Smart App Control currently blocks the FAISS DLL needed by Kilosort, including in the old environment. New sorting and the Kilosort GUI await resolution of that system-policy issue; see setup. Security settings have not been changed.
+**Runtime status:** The Windows DLL issue is resolved in the active environments with FAISS 1.13.2. Kilosort 4.1.7 imports, nearest-neighbor calculations, CUDA and offscreen GUI startup pass. Smart App Control remains enabled. The historical pilot retains FAISS 1.16.0 provenance; no sorting was repeated. See [the repair round](docs/development/rounds/2026-11-22-03-windows-dll-repair.md).
 
 Integer sample indices are authoritative; nominal sampling is 10,000 Hz and physical sampling 10,080 Hz. Automated good labels are not confirmed neurons. No masking, merging, resampling or relabeling has been adopted. Other-shank/extra_5 expansion needs source data and pilot acceptance; extra_6 and stimulation-period handling remain deferred.
 
