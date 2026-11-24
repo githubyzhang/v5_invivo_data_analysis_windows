@@ -1,18 +1,19 @@
 # Windows Kilosort4 roadmap
 
-Updated: 2026-11-24. This is the single current tracker. **W14 is complete; the W15-W17 work plan is accepted. Next implementation: W15A, reusable runner and shank1 all-channel baseline.** This documentation-cleanup round does not start sorting or adopt channel exclusions.
+Updated: 2026-11-24. This is the single current tracker. **W15A is complete: the reusable runner and shank1 all-channel baseline are validated. Next: W15B, matched shank2 sensitivity conditions.** No new-shank working run or curated subset has been accepted.
 
 ## Current state and decisions
 
 | Scope | Current state | Authoritative evidence |
 | --- | --- | --- |
 | Shank0 (first shank) | Selected `w7b-exclude248-01`: 58 original clusters. Accepted v1: 11 putative units / 18,252 derived events. Other 38 hold and nine withhold proposals remain outside the subset, with original labels/events preserved. | [Working run](../../configs/extra4_shank0_working_run.json), [W12 ledger](../reviews/2026-11-24-w12-curation-ledger.csv), [adopted policy](../../configs/extra4_shank0_analysis_policy.v1.json), [W13 freeze](../../configs/extra4_shank0_release.v1.json) |
-| Shanks1-3 | Inputs verified and all 1,536 channels screened. No new sorts yet. Proposed sensitivity exclusions: shank2 b54/global872 and b148/global353; shank3 b259/global2045. | [W14 findings](../reviews/2026-11-24-w14-input-channel-review.md), [input/proposal metadata](../../configs/extra4_remaining_shanks_w14.proposed.json), [report](../../results/extra4/w14-review03/index.html) |
+| Shank1 | Validated all-channel baseline: 11,324 events / 33 clusters (7 automated good, 26 mua); uncurated. | [W15A record](rounds/2026-11-24-06-w15a-shank1-baseline.md), [result metadata](../../configs/extra4_shank1_baseline.v1.json) |
+| Shanks2-3 | Inputs verified; W14 screened all 1,536 remaining-shank channels. Shanks2/3 have not been sorted. Proposed sensitivity exclusions: shank2 b54/global872 and b148/global353; shank3 b259/global2045. | [W14 findings](../reviews/2026-11-24-w14-input-channel-review.md), [input/proposal metadata](../../configs/extra4_remaining_shanks_w14.proposed.json), [report](../../results/extra4/w14-review03/index.html) |
 | Shared episodes | Shank3 has substantial shared flat activity; excluding b259 alone is not a solution. No temporal mask or universal clipping-percentage cutoff adopted. | [W14 shared-episode findings](../reviews/2026-11-24-w14-input-channel-review.md#shared-episodes-are-a-separate-concern) |
 
 **Decision boundary:** the user accepted the work plan, not future run selections, unit subsets or exposure-policy changes. W14 channel exclusions remain proposals for matched experiments. Run selection and cluster acceptance are separate decisions; automatic `good` labels are not curated neurons. Historical ledgers retain their original review wording; current acceptance fields are in the W12 ledger.
 
-Latest record: [documentation review](rounds/2026-11-24-05-documentation-cleanup.md). Latest implementation: [W14](rounds/2026-11-24-03-w14-inputs-quality.md). Planning history: [post-W14 plan](rounds/2026-11-24-04-extra4-release-plan.md) and [original W9-W17 plan](rounds/2026-11-23-08-extra4-roadmap-plan.md). Older records describe their own date and scope, not current pending work.
+Latest record and implementation: [W15A](rounds/2026-11-24-06-w15a-shank1-baseline.md). Previous [documentation review](rounds/2026-11-24-05-documentation-cleanup.md). Planning history: [post-W14 plan](rounds/2026-11-24-04-extra4-release-plan.md) and [original W9-W17 plan](rounds/2026-11-23-08-extra4-roadmap-plan.md). Older records describe their own date and scope, not current pending work.
 
 <a id="planned-rounds-extra_4-through-a-full-recording-checkpoint"></a>
 <a id="proposed-next-milestone-reviewed-four-shank-extra_4-release-v1"></a>
@@ -23,7 +24,7 @@ The user accepted this sequence after W14. Target: a selected run per analyzed s
 
 | Round | Bounded work | Exit condition |
 | --- | --- | --- |
-| W15A - Reusable runner and shank1 baseline | Parameterize verified input/probe/settings/output identity; validate against shank0's run contract and mapping expectations. Sort shank1 with all 512 channels and generate baseline quality annotations and diagnostics. | Verified first new-shank sort; complete provenance; no transfer of pilot cluster IDs or hard-coded counts. |
+| W15A - Complete: reusable runner and shank1 baseline | Parameterize verified input/probe/settings/output identity; validate against shank0's run contract and mapping expectations. Sort shank1 with all 512 channels and generate baseline quality annotations and diagnostics. | Verified first new-shank sort; complete provenance; no transfer of pilot cluster IDs or hard-coded counts. |
 | W15B - Shank2 sensitivity | Following explicit condition authorization, compare all channels with exclusion of b54/global872 and b148/global353, keeping settings matched. Review waveform support, population redistribution and artifact exposure rather than optimizing the automatic-good count. | Evidence-backed working-run recommendation; document benefits, losses and unresolved channels. |
 | W15C - Shank3 sensitivity and shared episodes | Compare all channels with exclusion of b259/global2045 if authorized. Evaluate detections and preprocessing around W14's shared flat episodes, plus cluster stability away from them. | State whether a usable working result is supported; distinguish channel-specific and shared-episode problems. No automatic temporal mask. |
 | W15D - Working-run selection checkpoint | Reconcile the three baseline/comparison reports and present one run recommendation per shank, with any further diagnostic experiment justified explicitly. Record the user's selections separately from cluster acceptance. | Intermediate milestone: a documented working-run set ready for curation, or a named shank deferred with its reason and next experiment. |
@@ -41,7 +42,7 @@ Release requires complete cluster accounting, explicit subset/policy acceptance,
 
 ## Implementation references and boundaries
 
-Use independent sorting per shank and the verified separate 512-channel binaries. Keep binary width and original sample axis intact when omitting electrodes in the sorter. The [W13 expansion procedure](extra4-expansion.md) is a **frozen design snapshot**; its future-tense W14 statements are superseded by the [W14 input/quality contract](../WINDOWS_QUALITY.md#w14-remaining-shank-input-and-quality-contract). W15A still needs the configuration-driven runner; W16A still needs generalized curation/report tools. Existing pilot scripts must not be applied to another shank by changing paths alone.
+Use independent sorting per shank and the verified separate 512-channel binaries. Keep binary width and original sample axis intact when omitting electrodes in the sorter. The [W13 expansion procedure](extra4-expansion.md) is a **frozen design snapshot**; its future-tense W14 statements are superseded by the [W14 input/quality contract](../WINDOWS_QUALITY.md#w14-remaining-shank-input-and-quality-contract). W15A implemented the [configuration-driven runner and baseline contract](../WINDOWS_QUALITY.md#w15-configuration-driven-sorting-and-baseline-contract); W16A still needs generalized curation/report tools. Existing pilot scripts must not be applied to another shank by changing paths alone.
 
 The [Windows quality reference](../WINDOWS_QUALITY.md) owns scientific methods and output definitions; [Windows setup](windows-setup.md) owns environments/storage; [the detector guide](../CUSTOM_PIPELINE_WINDOWS.md) owns imported Mac execution and sidecar semantics. Preserve full-2048-channel coincidence definitions when projecting annotations onto individual shanks. No quality-based censoring is automatically transferred to new units.
 

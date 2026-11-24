@@ -1,0 +1,30 @@
+{
+  "schema": "single-shank-baseline-checkpoint-v1",
+  "date": "2026-11-24",
+  "state": "baseline_validated_not_curated",
+  "recording": "extra_4",
+  "shank_zero_based": 1,
+  "run_id": "w15a-allchannels01",
+  "active_channels": 512,
+  "excluded_binary_channels": [],
+  "events": 11324,
+  "clusters": 33,
+  "automated_good": 7,
+  "automated_mua": 26,
+  "working_run_selected": false,
+  "accepted_subset": null,
+  "quality_censoring": false,
+  "pinned_files": {
+    "configs/extra4_shank1_w15a.json": "39fd5e0fc60fa480512d9b836d33a9a959cd5d609a09c210e58c364742164c2a",
+    "scripts/run_sorting.py": "641acaee3cb1da61b3d9d294fd7a2616f2191d50c8f5a3ae33c963dc9eee0335",
+    "scripts/review_sorting_baseline.py": "d417d08be23d7bf3afa7404385f230c41bf736f197c1d132808aaed616af0e3c",
+    "scripts/validate_sorting_baseline.py": "a3e987af0d73a10abd82053a4aaf7c904afbfb7bfbba6435c5b2afcbc25d22c8",
+    "tests/test_sorting_runner.py": "fa101d8676fbb36748d7d051a3f447e7a654d5bea9d5d8610ccaf065cf8e50a5",
+    "results/extra4_shank1/w15a-preflight01.json": "5cec20db55ed973f1e4bca337db0fe92cdc0bb8449bdd18145d4d026619eef9a",
+    "results/extra4_shank1/w15a-launch01.log": "260175a8ea318bb5c03d0e4b7ca1a9a8febf9bbcf02f02d941f2eb104066512c",
+    "results/extra4_shank1/w15a-allchannels01/output-manifest.json": "b714f930d0eb7dff405bbc262462ef41ddec2661c058e68fc44131b2a1c3ba18",
+    "results/extra4_shank1/w15a-baseline-review01/report-manifest.json": "24088133ffdc10e3ca2f233389a6bb04cd124881ca0999b96af98c51ebddc42f",
+    "results/extra4_shank1/w15a-validation01/manifest.json": "08c7822424b79095904396d5c143f7061df70dca8acc9ccc94d0261f0725340a",
+    "docs/development/rounds/2026-11-24-06-w15a-shank1-baseline.md": "6d390fc376ec609e139e6456b2913ba1fd0fb2c98e6535d47c620be7cedf3d9c"
+  }
+}
