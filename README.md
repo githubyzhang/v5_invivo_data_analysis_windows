@@ -1,17 +1,20 @@
 # Independent Windows Kilosort4 analysis
 
-This is the single Windows project root. It develops Kilosort4 sorting and downstream activity analysis independently of the Mac detector, while preserving common Git history and scientific provenance.
+This is the single Windows project root for Kilosort4 sorting and downstream activity analysis. The Mac custom detector runs alongside it as a separate candidate-detection and quality-annotation pipeline; its defaults are not Kilosort defaults.
 
-Start with the [roadmap](docs/development/roadmap.md), [Windows setup](docs/development/windows-setup.md), [viewers](docs/development/viewers.md), and [quality-report contract](docs/WINDOWS_QUALITY.md). The [migration handoff](handoffs/windows-kilosort-independent/START_HERE.md) owns the shared data contract. [Documentation conventions](docs/README.md) describe project upkeep.
+Start with the [roadmap](docs/development/roadmap.md) for current status, pending decisions and the agreed next rounds. The [documentation map](docs/README.md) distinguishes active references from preserved history.
 
-**Selected working run:** `w7b-exclude248-01` (channel248 excluded), retaining38,687 original events /58 clusters /19 automated good /39 mua. **Accepted analysis subset v1:**11 putative units and18,252 derived events under the user-accepted W11 policy; original outputs remain unchanged. [W12 report and findings](docs/reviews/2026-11-24-w12-curated-subset.md), [curation revision](configs/extra4_shank0_curated_v1.json), [adopted policy](configs/extra4_shank0_analysis_policy.v1.json), [working-run metadata](configs/extra4_shank0_working_run.json). Other clusters retain their prior hold/withhold proposals outside the accepted subset. The all-channel run remains reference evidence; outputs from alternative sorts are not mixed. [W13 release audit](results/extra4_shank0/w13-release01/index.html) passed. [W14 inputs and channel review](docs/reviews/2026-11-24-w14-input-channel-review.md) are complete, with exclusion proposals pending. Next is W15A runner adaptation and shank1 baseline; see the [expansion procedure](docs/development/extra4-expansion.md).
+| Need | Reference |
+| --- | --- |
+| Windows environments and storage | [Windows setup](docs/development/windows-setup.md) |
+| Review methods and output contracts | [Windows quality reference](docs/WINDOWS_QUALITY.md) |
+| Accepted shank0 result | [W12 report](results/extra4_shank0/w12-curated-v1/index.html), [decision ledger](docs/reviews/2026-11-24-w12-curation-ledger.csv), [W13 release](configs/extra4_shank0_release.v1.json) |
+| Remaining-shank inputs and proposals | [W14 findings](docs/reviews/2026-11-24-w14-input-channel-review.md), [input/proposal metadata](configs/extra4_remaining_shanks_w14.proposed.json) |
+| GUI/Phy viewing | [Viewer guide](docs/development/viewers.md); the Phy launcher opens a historical pilot copy |
+| Current imported Mac detector | [Windows detector guide](docs/CUSTOM_PIPELINE_WINDOWS.md) |
 
-The preserved extra_4/shank0 pilot has 39,620 events, 59 clusters (24 automated good, 35 mua), with no human curation. Open the [local quality report](results/extra4_shank0/pilot01-review02-local/index.html) or the [frozen RUN_REPORT](worker_returns/extra4_shank0/pilot01/received/RUN_REPORT.md). Original data, output arrays and labels remain unchanged. These local artifacts are ignored by Git.
+Shank numbers are zero-based: shank0 is the first shank. Original integer sample indices are authoritative; nominal and physical sampling rates are distinct. Automated `good` labels and accepted *putative units* are not definitive neuron identities. Use one selected run per shank; do not mix alternative sorts of the same shank.
 
-Data, Python environments and viewer launchers are now inside this root; the old sibling worker is preserved under ignored `worker_returns/worker-snapshot`. The original transfer package remains in `get_started`. No remote is configured and no changes were published.
+Preserve original data, outputs, labels, manifests and archives. `worker_returns/worker-snapshot` is historical evidence, not an active checkout. Use the root environments and fresh result paths. Data, environments and generated results are ignored by Git; committing their metadata does not back up those artifacts. See the [storage contract](docs/development/windows-setup.md#storage-and-preservation).
 
-**Runtime status:** The Windows DLL issue is resolved with FAISS 1.13.2 and Smart App Control enabled. W7B's new full-channel control reproduces the historical pilot's principal arrays and labels byte-for-byte. A separate channel-248 exclusion experiment is complete; see [W7B findings](docs/reviews/2026-11-23-w7b-sensitivity-findings.md). The historical pilot retains FAISS 1.16.0 provenance and remains unchanged.
-
-Integer sample indices are authoritative; nominal sampling is 10,000 Hz and physical sampling 10,080 Hz. Automated good labels are not confirmed neurons. The accepted v1 analysis domain is[100,2999900) samples with quality flags retained as annotations; no sorter-output masking, merging, resampling or label rewrite is applied. W13 cleared other-shank preparation subject to per-shank input and quality gates; extra_6 and stimulation-period handling remain deferred.
-
-Inherited `analysis/`, `legacy/`, `requirements.txt`, detector methods and tests remain historical Mac candidate-detection sources. The verified current Mac pipeline now runs separately under `custom_pipeline/` with `.venv-detector`; see the [Windows custom-pipeline guide](docs/CUSTOM_PIPELINE_WINDOWS.md). Native extra_4 detection reproduces the Mac candidate arrays exactly. Its new quality sidecar annotates the frozen Kilosort pilot without changing sorting, labels or events. Detector defaults are not Windows sorting defaults.
+Root `analysis/`, `legacy/`, `requirements.txt` and the older detector documentation retain Mac history. Do not use their setup commands for the active Windows sorting environment. The [migration handoff](handoffs/windows-kilosort-independent/START_HERE.md) preserves the original transfer contract.

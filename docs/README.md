@@ -1,40 +1,41 @@
 # Documentation map and working convention
 
-2026-11-22: [Windows setup](development/windows-setup.md), [local viewers](development/viewers.md) and the [quality contract](WINDOWS_QUALITY.md) own the independent Kilosort workflow. Existing METHODS, DECISIONS, OUTPUTS, VIEWER_HANDOFF and detector setup describe the inherited Mac detector. The roadmap remains the single current tracker. The [consolidation round](development/rounds/2026-11-22-02-project-consolidation.md) summarizes recovered project history and the migration evidence.
+Updated 2026-11-24. Start with the root README and the single current tracker, then read only the references relevant to the task. This project applies the supplied [documentation workflow](documentation-workflow.md) pragmatically.
 
-This project adapts the [FMAE documentation workflow reference](documentation-workflow.md). The reference is preserved as supplied; this page describes the conventions actually used here.
-
-## Where information belongs
+## Active references
 
 | Document | Owns |
-|---|---|
-| [Project README](../README.md) | Purpose, boundaries and navigation |
-| [Roadmap](development/roadmap.md) | The single current tracker: status, next action, open decisions and blockers |
-| [Setup](development/setup.md) | Environment, run commands, interruption handling and reproduction |
-| [Methods](METHODS.md) | Detection definitions and quality handling |
-| [Decisions](DECISIONS.md) | Adopted detector choices, rationale and limits |
-| [Output schema](OUTPUTS.md) | Authoritative saved-file contract and validation semantics |
-| [Viewer handoff](VIEWER_HANDOFF.md) | Consumer-specific integration guidance; links to the schema |
-| [Investigation history](PROGRESS.md) | Historical evidence through the initial activity report |
-| [Dated rounds](development/rounds/) | Substantive changes, validation and remaining uncertainty after this reorganization |
-| [User labels](reviews/ma50_user_review.json) and [provenance](reviews/provenance.json) | Preserved expert review evidence |
+| --- | --- |
+| [Project README](../README.md) | Purpose, preservation boundaries and entry points |
+| [Roadmap](development/roadmap.md) | Current status, agreed future rounds and open decisions |
+| [Windows setup](development/windows-setup.md) | Root environments, storage, recovery and reproduction commands |
+| [Windows quality reference](WINDOWS_QUALITY.md) | Kilosort review/output contracts, explicitly scoped by round |
+| [Windows viewers](development/viewers.md) | Launcher targets and viewer limitations |
+| [Windows custom detector](CUSTOM_PIPELINE_WINDOWS.md) | Separate `.venv-detector` workflow and quality sidecar |
+| [Dated rounds](development/rounds/) | What changed, what was validated and what remained unresolved at that date |
 
-Existing reference filenames stay in place to avoid breaking handoffs. We do not need separate architecture/research/client directory trees yet. Historical experiments are retained in the investigation ledger and their original generated reports; we do not invent retrospective round dates or rewrite frozen experiments as current specifications.
+## Decisions and preserved evidence
+
+| Reference | Scope and interpretation |
+| --- | --- |
+| [W12 acceptance ledger](reviews/2026-11-24-w12-curation-ledger.csv) and [revision](../configs/extra4_shank0_curated_v1.json) | Current accepted shank0 subset. Acceptance fields supersede earlier wording retained in reasons. |
+| [Adopted shank0 policy](../configs/extra4_shank0_analysis_policy.v1.json) | Accepted boundary/exposure and annotation policy; not automatic acceptance for other shanks |
+| [W13 release](../configs/extra4_shank0_release.v1.json) and [expansion procedure](development/extra4-expansion.md) | Hash-pinned checkpoint and procedure as of W13. Statements about future W14 work are historical; use the roadmap and W14 contract for subsequent implementation. Do not edit the pinned procedure. |
+| [W14 input/proposal metadata](../configs/extra4_remaining_shanks_w14.proposed.json) and [channel ledger](reviews/2026-11-24-w14-channel-proposals.csv) | Verified inputs and proposed channel decisions; a commit does not adopt exclusions |
+| Earlier [review findings/ledgers](reviews/) | Evidence and proposals at their named round, not competing current decisions |
+| [Mac setup](development/setup.md), [methods](METHODS.md), [decisions](DECISIONS.md), [outputs](OUTPUTS.md), [viewer handoff](VIEWER_HANDOFF.md), [progress](PROGRESS.md) | Inherited detector history. Do not execute its `.venv` setup instructions in the Windows sorter environment. The current imported detector is governed by the Windows detector guide and its pinned upstream sources. |
+| [User labels](reviews/ma50_user_review.json) and [provenance](reviews/provenance.json) | Preserved expert review evidence, not labels for the current Kilosort units |
+
+Keep existing reference paths and frozen bytes intact. If a pinned reference becomes stale, clarify its scope in an active entry point or add a new revision; never repair its checksum by rewriting the original manifest.
 
 ## Update loop
 
-1. Read the root README and roadmap, then the references relevant to the task.
-2. Do the bounded work and record what actually passed, failed or remains unknown.
-3. Update the owning reference only if its meaning changed.
-4. Add one dated round for a substantive implementation, experiment, review or handoff.
-5. Update the roadmap and essential navigation. Do not add competing current-status sections elsewhere.
+1. Read README, roadmap and the latest linked round before work.
+2. Complete and verify the bounded task. Distinguish implementation, validation, proposal and adoption.
+3. Update the owning reference only when its meaning changes; put current status and future work in the roadmap.
+4. Write one dated record per substantive round, using `YYYY-MM-DD-NN-short-title.md`. Link evidence instead of copying it into multiple summaries.
+5. Check links, preservation and the diff. Commit/push only under the user's normal authorization workflow.
 
-Round filenames use `YYYY-MM-DD-NN-short-title.md`; related small fixes can share one record. Descriptive names are sufficient until milestone IDs solve a real coordination problem. State **proposed**, **implemented**, **validated for a stated scope**, or **adopted** explicitly. Include purpose, changes, validation/evidence, limitations and next action; omit empty sections. A documentation update does not authorize a commit or push.
+Scientific acceptance is explicit and versioned. A plan, automated label, passing software test or source hash does not establish neuronal identity. Retain holds and unavailable quality assessments without converting them to noise or clean time.
 
-## Scientific evidence and history
-
-Engineering tests and source-file checks do not establish eAP accuracy or neuronal identity. Keep recording conditions separate; preserve extra_5/6's post-stimulation history. Selected waveform labels are not a random accuracy sample. A proposed sorter or artifact rule does not become an adopted default merely by appearing in the roadmap.
-
-Keep frozen results, labels and provenance intact. Add dated corrections or supersession links when needed, rather than silently rewriting the evidence. Old test counts and statements of incomplete work remain historical; the roadmap owns today's status. Local result links may be unavailable in a fresh clone because generated results are not versioned; the setup guide owns their storage and reproduction instructions.
-
-For documentation-only changes, check relative links, preserved evidence and the diff. Do not rerun expensive recording analysis just to reorganize prose.
+For documentation-only work, check local links and anchors, protected hashes and the changed-file scope. Do not rerun expensive recording analysis. Local result links may be unavailable in a fresh clone; the Windows setup guide owns storage/recovery instructions. The supplied documentation-workflow reference and historical round records are not extra current trackers.
