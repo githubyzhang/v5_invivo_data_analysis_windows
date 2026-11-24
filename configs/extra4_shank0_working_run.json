@@ -8,18 +8,46 @@
   "results_path": "results/extra4_shank0/w7b-exclude248-01/kilosort4",
   "run_manifest_path": "results/extra4_shank0/w7b-exclude248-01/output-manifest.json",
   "run_manifest_sha256": "18c5a3c28cbe8b56d2a8411eaed2676c64fdd12ba72fc36965ec927494057a84",
-  "excluded_binary_channels": [248],
-  "excluded_global_channels": [1921],
+  "excluded_binary_channels": [
+    248
+  ],
+  "excluded_global_channels": [
+    1921
+  ],
   "events": 38687,
   "clusters": 58,
   "automated_good": 19,
   "automated_mua": 39,
   "scope": "Working run for continued curation and subsequent analysis of explicitly accepted subsets",
-  "cluster_acceptance_state": "pending",
-  "accepted_cluster_ids": [],
+  "cluster_acceptance_state": "user_accepted_subset_v1",
+  "accepted_cluster_ids": [
+    1,
+    5,
+    6,
+    10,
+    32,
+    33,
+    38,
+    39,
+    47,
+    49,
+    50
+  ],
   "mix_clusters_across_runs": false,
-  "reference_runs": ["w7b-control01", "historical-pilot01"],
+  "reference_runs": [
+    "w7b-control01",
+    "historical-pilot01"
+  ],
   "original_outputs_modified": false,
   "temporal_mask_adopted": false,
-  "note": "Selection metadata only; does not alter sorter settings, launchers, output labels or the preserved W8 proposal packet. An empty accepted list means no cluster acceptance has been recorded, not rejection of all clusters."
+  "note": "Working sorter remains unchanged. User explicitly accepted 11 putative units and the W11 analysis policy on 2026-11-24; v1 derived table contains 18252 events. Other clusters remain outside this subset with their prior review proposals preserved. No quality-based temporal mask or original-label rewrite.",
+  "curation_revision_path": "configs/extra4_shank0_curated_v1.json",
+  "analysis_policy_path": "configs/extra4_shank0_analysis_policy.v1.json",
+  "derived_results_path": "results/extra4_shank0/w12-curated-v1",
+  "derived_report_manifest_sha256": "4fe5328d22114232e947918bb8c6cfb086e416d936fcbf75a9e30c62659a21e2",
+  "analysis_interval_half_open": [
+    100,
+    2999900
+  ],
+  "acceptance_date": "2026-11-24"
 }
