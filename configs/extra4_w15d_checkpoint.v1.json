@@ -1,0 +1,14 @@
+{
+  "schema": "working-run-proposal-checkpoint-v1",
+  "date": "2026-11-24",
+  "state": "audited_awaiting_user_selection",
+  "report": "results/extra4/w15d-checkpoint01",
+  "working_runs_selected": false,
+  "new_units_accepted": false,
+  "pinned_files": {
+    "configs/extra4_working_runs_w15d.proposed.json": "268932b86e8d8e691512b6f8c3061ca3eac6124c631f62a8a2dadc1ce01584e3",
+    "scripts/build_w15d_checkpoint.py": "7989557729ab16fa16c2592ab486bff418655fa8256d826cd4b1c711141483dc",
+    "docs/development/rounds/2026-11-24-09-w15d-working-run-checkpoint.md": "b91f12b7ff71a2dc61190ce6a98bc3b03b278a3beea308e0fbc82d666ebd0ade",
+    "results/extra4/w15d-checkpoint01/report-manifest.json": "c2be4a3550d684324cb644d67270e4da074ca30cb42855c912592fa461caf036"
+  }
+}

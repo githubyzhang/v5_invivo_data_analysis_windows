@@ -1,0 +1,97 @@
+{
+  "schema": "extra4-working-run-set-proposal-v1",
+  "date": "2026-11-24",
+  "state": "proposed_awaiting_user",
+  "scope": "Select one sorter output per shank for continued curation; no cluster acceptance or analysis-policy adoption.",
+  "shank0_release": "configs/extra4_shank0_release.v1.json",
+  "shank0_release_sha256": "15ab96fc1ff02fcfefe6c1f9ba7552564f905187456c4940a4d6a8dd1f825aec",
+  "recommendations": [
+    {
+      "shank_zero_based": 1,
+      "run_id": "w15a-allchannels01",
+      "run_path": "results/extra4_shank1/w15a-allchannels01",
+      "baseline_report": "results/extra4_shank1/w15a-baseline-review01",
+      "checkpoint": "configs/extra4_shank1_baseline.v1.json",
+      "checkpoint_sha256": "faf565c40344c945c76df5f17fef056b7830fc4923e989eaec970f96804a34ad",
+      "excluded_binary_channels": [],
+      "excluded_global_channels": [],
+      "reason": "All-channel baseline is supported; W14 found no persistent channel-specific exclusion target.",
+      "priority_clusters": {
+        "2": "No complete raw context; boundary/sparse review.",
+        "18": "No complete raw context; boundary/sparse review.",
+        "30": "No complete raw context; boundary/sparse review."
+      },
+      "selection_state": "proposed_awaiting_user",
+      "cluster_acceptance_state": "not_curated",
+      "all_clusters_require_review": true
+    },
+    {
+      "shank_zero_based": 2,
+      "run_id": "w15b-exclude54-14801",
+      "run_path": "results/extra4_shank2/w15b-exclude54-14801",
+      "baseline_report": "results/extra4_shank2/w15b-exclusion-review01",
+      "checkpoint": "configs/extra4_shank2_sensitivity.v1.json",
+      "checkpoint_sha256": "29244132f846502a1ccd10339b8214668f40357cc502f22a64798a756df2a1a9",
+      "excluded_binary_channels": [
+        54,
+        148
+      ],
+      "excluded_global_channels": [
+        872,
+        353
+      ],
+      "reason": "Exclude two persistently compromised electrodes; preserve changed candidates and remaining-channel quality concerns.",
+      "priority_clusters": {
+        "0": "b10 remains compromised; review raw support and exposure.",
+        "6": "Control good c6 loses events and becomes mua.",
+        "27": "Control good c30 becomes mua; contamination increases.",
+        "38": "Control good c41 becomes mua; contamination increases.",
+        "39": "Control mua c42 becomes good; not acceptance.",
+        "17": "Lower cross-run overlap with control c19.",
+        "26": "Lower cross-run overlap with control c29.",
+        "9": "Lower cross-run overlap with control c9.",
+        "43": "b367 concern; single boundary event."
+      },
+      "selection_state": "proposed_awaiting_user",
+      "cluster_acceptance_state": "not_curated",
+      "all_clusters_require_review": true
+    },
+    {
+      "shank_zero_based": 3,
+      "run_id": "w15c-exclude25901",
+      "run_path": "results/extra4_shank3/w15c-exclude25901",
+      "baseline_report": "results/extra4_shank3/w15c-exclusion-review01",
+      "checkpoint": "configs/extra4_shank3_sensitivity.v1.json",
+      "checkpoint_sha256": "e4f9e94f3538a6e4d828814f213bca71fa7e46eff0d3293738751521906c1e01",
+      "excluded_binary_channels": [
+        259
+      ],
+      "excluded_global_channels": [
+        2045
+      ],
+      "reason": "Provisional curation run avoiding compromised b259; shared signal loss persists and overall artifact improvement is not established.",
+      "priority_clusters": {
+        "1": "Joint review with c2: possible split of control c0, not another proven neuron.",
+        "2": "Joint review with c1 and 14 core-zone events; no merge adopted.",
+        "10": "Lower cross-run overlap; temporal support.",
+        "21": "Sparse temporal support: 70 events.",
+        "25": "29 events; no first-quarter events.",
+        "26": "177-to-296 event redistribution from control c23.",
+        "34": "Lower cross-run overlap; temporal support.",
+        "16": "One shared-core event; per-unit exposure review.",
+        "30": "Two shared-core events; per-unit exposure review.",
+        "38": "b403 remains compromised; single-event mua.",
+        "41": "b486 remains compromised; single-event mua."
+      },
+      "selection_state": "proposed_awaiting_user",
+      "cluster_acceptance_state": "not_curated",
+      "all_clusters_require_review": true
+    }
+  ],
+  "mix_clusters_across_runs": false,
+  "temporal_mask_adopted": false,
+  "new_units_accepted": false,
+  "additional_sort_required_before_selection": false,
+  "additional_sort_reason": "Current evidence supports curation. Revisit diagnostics only if curation reveals an unresolved scientific question; no unmotivated rerun or blanket masking.",
+  "adoption_requires": "Explicit user selection of the three named runs; retain this proposal and write a separate accepted selection record after approval."
+}
