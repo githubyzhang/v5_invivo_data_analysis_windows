@@ -1,0 +1,49 @@
+{
+  "schema": "single-shank-sensitivity-checkpoint-v1",
+  "date": "2026-11-24",
+  "recording": "extra_4",
+  "shank_zero_based": 2,
+  "state": "validated_recommendation_not_adopted",
+  "recommended_run": "w15b-exclude54-14801",
+  "working_run_selected": false,
+  "accepted_subset": null,
+  "quality_censoring": false,
+  "priority_cross_run_pairs": [
+    [
+      6,
+      6
+    ],
+    [
+      30,
+      27
+    ],
+    [
+      41,
+      38
+    ],
+    [
+      42,
+      39
+    ]
+  ],
+  "pinned_files": {
+    "configs/extra4_shank2_w15b_allchannels.json": "0cabdd1f8fe609251e76d1a8fb33680168a30403ebc57c52a1395661576005eb",
+    "configs/extra4_shank2_w15b_exclude54-148.json": "026d6d22eb13cd1eb288502259c0f45b593da2315d062919bc7c7b41ee5185b6",
+    "scripts/compare_sorting_runs.py": "f5a9060717b77622a86a35a93d13162f476389d08518f5c72d373ccf11b1796a",
+    "scripts/validate_sorting_comparison.py": "1fdbb5a88eb3b2273be846a5f893d16d8ab890e8f5fbf47706c88e25763a26ad",
+    "tests/test_sorting_comparison.py": "0fdfa94445ea3226231a6d32e6f22693ca2459018e85b4d37ceef0cc62dceb13",
+    "docs/development/rounds/2026-11-24-07-w15b-shank2-sensitivity.md": "bc804aa7dabfb2449e2ae0e323183f1a420e8d54e04454f92dc845222a82e885",
+    "results/extra4_shank2/w15b-allchannels01/output-manifest.json": "a15d33ca2a83dab720149e4392c87c31c99f47ed51224fdcfac8c1893f369f67",
+    "results/extra4_shank2/w15b-exclude54-14801/output-manifest.json": "e8460a4e57b87ea9316c3e296b3a724a6b681283fb75a7bf23f831a24409b619",
+    "results/extra4_shank2/w15b-control-review01/report-manifest.json": "1c1f4ce613f20522ab5f31ebdc4d9d53cb9322906e4fdffb2d4d94eb417d9aca",
+    "results/extra4_shank2/w15b-exclusion-review01/report-manifest.json": "8104cd918af857cf65368694c228392d1d536fd5e4a7e77d3f20f3f62164682c",
+    "results/extra4_shank2/w15b-comparison01/report-manifest.json": "3ccbd85ef0ed596bf638a040635f56ff2daf900b053fab2696c662820aec52ca",
+    "results/extra4_shank2/w15b-control-validation01/manifest.json": "6793e3b8f3e8e2a419a0acd457fcb59d8b57f1d98e773b9c74ebc51807b98e78",
+    "results/extra4_shank2/w15b-exclusion-validation01/manifest.json": "ab032106982ff441cf07dfa7c7d6fb868b28961bccfdcb59f770c214846fee74",
+    "results/extra4_shank2/w15b-comparison-validation01/manifest.json": "14644898badf9e1e8292a2af7d8cccc9f79add06a5ed9b98ef35a8e7477a0e2a",
+    "results/extra4_shank2/w15b-visual-review01/manifest.json": "ea0f030402c975c326573410441cf31b6ba218666ee38f0ff89166c841f4fbc9",
+    "results/extra4_shank2/w15b-allchannels-launch01.log": "d7de005967d2dce5b6e5e5e111df07b6adb8b2b17714f65e6dc42ec7bfdfce56",
+    "results/extra4_shank2/w15b-exclusion-launch01.log": "1942bd2e254b5bf58c6ead54bbbf594147da3d9ac55e9e76f5142f520166c736",
+    "results/extra4_shank2/w15b-comparison-launch01.log": "6c0ca3ba8f1edd3fffbfb8ff4803caad93da8d2b519e98493a01fbd9ce43ec7f"
+  }
+}
