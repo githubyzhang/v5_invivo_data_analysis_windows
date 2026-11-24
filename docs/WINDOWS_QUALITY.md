@@ -108,3 +108,21 @@ Fourteen named pair selections in the script cover promising candidates, selecte
 The independent audit rereads every saved pair window and quarter/reference selection, reproduces means, inverts the binary channel map to reconstruct features, verifies projections, and brute-forces pair-lag lists. It also records old31/33's union correspondence and candidate-level automatic-good bookkeeping. Six existing helper tests cover the reused interval, lag, feature/PCA and matching functions.
 
 After visual review, the versioned [proposal ledger](reviews/2026-11-23-w8-curation-proposals.csv) is copied into the packet, and `working_run_recommendation.json` explicitly records proposed/not-adopted state, pending human acceptance and unchanged originals. Final report assembly adds links and refreshes the manifest. Rerunning evidence generation alone does not reproduce scientific review decisions; those are authored in the versioned [findings](reviews/2026-11-23-w8-curation-findings.md). Every exclusion cluster is accounted for as recommended, held, boundary-only or outside acceptance scope; outside scope is not rejection. The ledger pins source arrays and preserves original automated labels separately from recommendations. Human adoption must be recorded in a new revision, never by silently rewriting these proposals or sorter output labels.
+
+## W9 broader good-cluster review
+
+Use root `.venv` with a fresh output path:
+
+```powershell
+.venv\Scripts\python.exe scripts/review_w9_good.py --output results/extra4_shank0/w9-good-review01
+.venv\Scripts\python.exe scripts/validate_w9_good.py --report results/extra4_shank0/w9-good-review01
+.venv\Scripts\python.exe -m unittest tests.test_round2_review tests.test_w7b_review
+```
+
+The generator verifies the selected W7B output, W7B comparison and W8 report manifests, and raw SHA before/after. It asserts that its 15 targets are exactly the automated-good IDs other than W8's four candidates. It reuses W8's hash-bound reproduction of R/Q criteria and W7B annotations; these retain the full2048-channel population. `unit_metrics.csv` preserves automatic labels, warning/availability counts and full-exposure rates. No new scientific label or exposure correction is calculated automatically.
+
+`neighbor_screen.csv` records all57 competitors per target, signed template cosine, peak distance, event count and selection/evidence provenance. The screen selects the two largest absolute cosines of at least.05 plus the nearest peak within150 micrometers among clusters with at least20 events. These are bounded review-prioritization choices, not acceptance cutoffs. Sparse neighbors remain for W10. Relevant existing W8 comparisons are linked;12 missing pairs are newly generated. Pairs are within the selected run, not cross-run matches.
+
+Unit NPZs retain up to256 complete chronological-rank-selected raw windows on eight nearest physical channels, the pooled mean, independent up-to128 selections per quarter, quarter means and all autocorrelation lags within inclusive +/-500 samples. Raw baseline/scaling and quarter conventions match W8. Exact self-pairs are removed from ACGs; distinct events at equal sample times would remain. Pair NPZs retain12 physical channels, original event indices, raw windows, PCA parameters/projections and full cross-lag lists. Plotting shows bounded excerpts and selected spatial channels, not every waveform/event. Missing common stored feature channels yield an empty PCA panel explicitly titled zero channels; that is unavailable evidence, not established separation.
+
+The validator independently rereads windows, brute-forces auto/cross event differences, inverts the physical PC map, recomputes quarter means/correlations and recalculates guard/coincidence membership with direct half-open inequalities. Existing helpers have six focused unittest checks. The packet is finalized with the versioned proposal ledger and `visual_review.json`; a final manifest covers all artifacts except itself. The generator alone does not reproduce authored scientific recommendations. [W9 findings](reviews/2026-11-23-w9-good-cluster-findings.md) own those judgments; [the revised ledger](reviews/2026-11-23-w9-curation-proposals.csv) preserves original labels and pending human decisions. Older packets and ledgers remain unchanged.
