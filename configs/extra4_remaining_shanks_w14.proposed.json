@@ -1,0 +1,92 @@
+{
+  "schema": "extra4-remaining-shanks-input-proposals-v1",
+  "date": "2026-11-24",
+  "input_state": "verified",
+  "channel_selection_state": "proposed_not_adopted",
+  "source": "C:\\DATA\\cnea_data\\invivo\\26-11-06\\0192\\extra_4_signals.h5",
+  "source_sha256": "3bedaa51bca65205dcc81e25ef48f249c9f1ea34346f4cfd7327e26269bd9755",
+  "input_directory": "data/w14-extra4-inputs01",
+  "input_manifest_sha256": "027af9ba368e3ab72d4d919cefcf88172a27a3d3556d8821c16d5c7e87fcf108",
+  "nominal_fs_hz": 10000,
+  "physical_fs_hz": 10080,
+  "samples": 3000000,
+  "binary_dtype": "little-endian float32",
+  "binary_channels": 512,
+  "shanks": [
+    {
+      "shank_zero_based": 1,
+      "binary": "extra4_shank1_float32.bin",
+      "sha256": "d977cd275ae7e025ead3ac7c217150c8f5ac8975ee2dbcb034c815da78a875ab",
+      "samples": 3000000,
+      "channels": 512,
+      "bytes": 6144000000,
+      "source_values_verified": 1536000000,
+      "probe": "probe_shank1.json",
+      "channel_map": "channel_map_shank1.csv",
+      "proposed_excluded_binary_channels": [],
+      "proposed_excluded_global_channels": [],
+      "input_audit_path": "results/extra4_shank1/w14-input-audit01",
+      "input_audit_manifest_sha256": "8e2c4b01a6ed80a2ccc3f9501ca084acbe34544a8f0d13323bf8e8cc8516ce64"
+    },
+    {
+      "shank_zero_based": 2,
+      "binary": "extra4_shank2_float32.bin",
+      "sha256": "6de96e29374c0e9e5530fc9db325c4a5e2b96323fd4b85b86a12e686a42eb755",
+      "samples": 3000000,
+      "channels": 512,
+      "bytes": 6144000000,
+      "source_values_verified": 1536000000,
+      "probe": "probe_shank2.json",
+      "channel_map": "channel_map_shank2.csv",
+      "proposed_excluded_binary_channels": [
+        54,
+        148
+      ],
+      "proposed_excluded_global_channels": [
+        872,
+        353
+      ],
+      "input_audit_path": "results/extra4_shank2/w14-input-audit01",
+      "input_audit_manifest_sha256": "576668a9adcdde41b26282accafc56a641516ce9e26bba56e920005f6d86e48a"
+    },
+    {
+      "shank_zero_based": 3,
+      "binary": "extra4_shank3_float32.bin",
+      "sha256": "7a50a380dfc024ab301e2132d9f5bc10a8c81584190dad4339599b6ab93f8577",
+      "samples": 3000000,
+      "channels": 512,
+      "bytes": 6144000000,
+      "source_values_verified": 1536000000,
+      "probe": "probe_shank3.json",
+      "channel_map": "channel_map_shank3.csv",
+      "proposed_excluded_binary_channels": [
+        259
+      ],
+      "proposed_excluded_global_channels": [
+        2045
+      ],
+      "input_audit_path": "results/extra4_shank3/w14-input-audit01",
+      "input_audit_manifest_sha256": "ec41ecf29bcdc4ef878591379ab51786316d681c5dcfacacd51238b5ca5ecb5f"
+    }
+  ],
+  "proposed_next_rounds": [
+    "W15A generalized runner and shank1 all-channel baseline",
+    "W15B shank2 matched all-channel/exclusion comparison",
+    "W15C shank3 matched comparison with shared-episode diagnostics"
+  ],
+  "sorts_performed": false,
+  "exclusions_adopted": false,
+  "temporal_mask_adopted": false,
+  "evidence_sha256": {
+    "results/extra4/w14-quality01/manifest.json": "061a47b2af23fcb85b5ac8ffde9ab4a9ea3bb955a93d272626d2c2de6b37e179",
+    "results/extra4/w14-review03/manifest.json": "abec76cb65064359411324ca94da4344679455f01751800439a33fa4e2f06747",
+    "results/extra4/w14-validation03/manifest.json": "578448051408657db52bbfed483e8fbecf81b555f9121127fd46f819e9ec93af",
+    "docs/reviews/2026-11-24-w14-channel-proposals.csv": "a05a787613be9945fc601afa8e7f422b65884ad03fba2dc6225e76798c8d46ac",
+    "docs/reviews/2026-11-24-w14-input-channel-review.md": "5d926f7d409dc68ca5bd6b1398da6e540258c275e0665a0a92fbd089eab38efc",
+    "scripts/prepare_w14_inputs.py": "e8481b5d1606a14a68ee8aaef5aa95dd1a07e532a840f2eb574af0f3f71c125e",
+    "scripts/review_w14_channels.py": "1020455086d56ec6753002f9a18e7d219d2c4f825cc3d971c94b907fd589cac3",
+    "scripts/validate_w14_review.py": "bef55dae46ddb4251b14214a7385c4c17d9f2beb604f720df408102a61b6b039",
+    "scripts/shank_input.py": "1615c358f888dca7ec8c48dc18570e291b0842632e2e27dfd3af3e6d518d2cdd",
+    "tests/test_w14_inputs.py": "b1a0c65bbf24d6816ab1105925e6de8bfd8799c3c4b2215897a4751aaddcd553"
+  }
+}

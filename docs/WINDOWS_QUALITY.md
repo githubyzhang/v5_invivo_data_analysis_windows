@@ -190,3 +190,10 @@ The validator independently selects source events, checks CSV and NPZ contents/f
 ## W13 release and expansion gate
 
 The accepted W12 subset and packet remain unchanged. The [W13 release record](../configs/extra4_shank0_release.v1.json) pins the provenance freeze; the [release audit](../results/extra4_shank0/w13-release01/index.html) verifies nine manifests, exact replay of 38 payloads and full source-to-shank0 equality. No new GPU sort was performed. The [expansion procedure](development/extra4-expansion.md) owns reusable input checks, per-shank gates and tooling limits. W13 clears W14 preparation, not automatic acceptance or exclusion on other shanks.
+
+
+## W14 remaining-shank input and quality contract
+
+The [W14 findings](reviews/2026-11-24-w14-input-channel-review.md) and [input/proposal metadata](../configs/extra4_remaining_shanks_w14.proposed.json) extend the frozen W13 expansion procedure without modifying it. `prepare_w14_inputs.py` creates fresh exact-cast exports and source-level quality inventories; `shank_input.py` independently verifies complete source/binary equality. Full-width binaries remain unchanged by proposed electrode exclusions. `review_w14_channels.py` creates all-channel overview and bounded neighbor evidence; `validate_w14_review.py` checks interval accounting and saved raw examples. Each output path must be fresh.
+
+All-channel CSVs own measured guard/zero fractions and channel proposals; exact intervals and per-second counts are in the quality NPZ. The 10-sample flat / 500-sample padding definition is inherited diagnostic metadata, not a unit exposure mask. Shared concurrency thresholds are descriptive. Full-population coincidence annotations retain their 2048-channel definition. Three named channel-exclusion sensitivities remain proposals; no temporal mask or universal clipping cutoff is adopted. W15 is staged into runner/shank1 baseline, shank2 matched comparison and shank3 matched/shared-episode review.
