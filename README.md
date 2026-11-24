@@ -4,6 +4,8 @@ This is the single Windows project root. It develops Kilosort4 sorting and downs
 
 Start with the [roadmap](docs/development/roadmap.md), [Windows setup](docs/development/windows-setup.md), [viewers](docs/development/viewers.md), and [quality-report contract](docs/WINDOWS_QUALITY.md). The [migration handoff](handoffs/windows-kilosort-independent/START_HERE.md) owns the shared data contract. [Documentation conventions](docs/README.md) describe project upkeep.
 
+**Selected working run:** `w7b-exclude248-01` (channel 248 excluded), chosen by the user for continued curation: 38,687 events / 58 clusters, with 19 automated good and 39 mua. [Selection metadata](configs/extra4_shank0_working_run.json) pins its identity. Individual cluster acceptance remains pending. The all-channel run remains reference evidence; clusters from different runs are not mixed.
+
 The preserved extra_4/shank0 pilot has 39,620 events, 59 clusters (24 automated good, 35 mua), with no human curation. Open the [local quality report](results/extra4_shank0/pilot01-review02-local/index.html) or the [frozen RUN_REPORT](worker_returns/extra4_shank0/pilot01/received/RUN_REPORT.md). Original data, output arrays and labels remain unchanged. These local artifacts are ignored by Git.
 
 Data, Python environments and viewer launchers are now inside this root; the old sibling worker is preserved under ignored `worker_returns/worker-snapshot`. The original transfer package remains in `get_started`. No remote is configured and no changes were published.
