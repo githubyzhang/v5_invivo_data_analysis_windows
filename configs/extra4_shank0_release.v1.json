@@ -1,0 +1,30 @@
+{
+  "schema": "shank0-release-v1",
+  "release_id": "extra4-shank0-curated-v1-w13",
+  "date": "2026-11-24",
+  "state": "validated_provenance_freeze",
+  "accepted_subset_revision": "extra4-shank0-curated-v1",
+  "baseline_commit": "ad78b5fc196afc3e958698d459e5d8410840cd5a",
+  "accepted_units": 11,
+  "accepted_events": 18252,
+  "selected_run": "w7b-exclude248-01",
+  "gate": "go_to_W14_input_preparation_and_channel_quality_review",
+  "sorting_gate": "requires_each_shank_verified_inputs_and_explicit_channel_selection",
+  "payloads": {
+    "configs/extra4_shank0_curated_v1.json": "e026c9f914d235188e9ae84fc58893c7ee8b8347ac06f2974a869764b6ed5300",
+    "configs/extra4_shank0_analysis_policy.v1.json": "aba7e39a7ba904a6433c3b5b2428c8903d2a3b95d44f2a7c6e212abb45e2842b",
+    "configs/extra4_shank0_working_run.json": "da607ccbb5b611b87afbf687a06be97d11970c7b45f5a03c56561c989ba015a7",
+    "docs/reviews/2026-11-24-w12-curation-ledger.csv": "d3e2e67c8e611aeaba014a0d5172c7eb39fa625acf0d21e2b610ec4e2fbb72ff",
+    "docs/development/extra4-expansion.md": "2ebd82bb22ad4f8844865cdfb55c3957f5dfd6f8e9d2ea26b5eacd8dab9b6193",
+    "results/extra4_shank0/w12-curated-v1/report-manifest.json": "4fe5328d22114232e947918bb8c6cfb086e416d936fcbf75a9e30c62659a21e2",
+    "results/extra4_shank0/w13-release01/report-manifest.json": "e326aa3edd15584f41e87bdbda8f12726dbd29e3e53ec361e39bcfc27ac3e918",
+    "results/extra4_shank0/w13-input-audit01/manifest.json": "b434f62009c4791dcf6acb2b3bfe93afac9d2fd8c98125508b2f7a22edcfc568",
+    "results/extra4_shank0/w13-replay01/report-manifest.json": "aae16ff00a6c2d642df539b89a7a9dcf1782e1f0a8430606552a33dc01adff8e",
+    "results/extra4_shank0/w13-runtime01.json": "c5e25b47d2c8f501986f700d56d5ea2a29b88682e3cc3bc58d3442cb4acf90be"
+  },
+  "source_sha256": "3bedaa51bca65205dcc81e25ef48f249c9f1ea34346f4cfd7327e26269bd9755",
+  "binary_sha256": "11cd033eb0bda858f7598123a795f198078cc227d98d92543e8ea88f9e12eff0",
+  "source_and_original_outputs_modified": false,
+  "freeze_semantics": "Content hashes and no-overwrite convention; no filesystem permissions changed. Local ignored artifacts must be retained separately from Git.",
+  "new_shank_units_or_exclusions_accepted": false
+}
