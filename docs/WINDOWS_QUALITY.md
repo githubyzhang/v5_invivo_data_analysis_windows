@@ -45,3 +45,24 @@ The completed Round 2 packet adds reviewed findings, a pending proposal ledger, 
 ## External current-detector annotations
 
 W6 adds a separate `kilosort-external-detector-quality-v1` sidecar without modifying the frozen sort or prior reviews. The [custom-pipeline guide](CUSTOM_PIPELINE_WINDOWS.md#kilosort-annotation-adapter) owns its schema and source-linkage requirements. It projects 2048-channel detector coincidence warning/availability intervals onto the original 512-channel pilot event sample indices, and separately records peak-channel guard/observability diagnostics. Candidate row flags are never reused as sorter row flags. The generic native detector's historical baseline/broadband warning fields are explicitly unavailable; the old partial reference masks remain in their own artifacts. None of these external annotations is an adopted label, exclusion, accuracy estimate or unit exposure denominator.
+
+## W7A all-channel guard and saved-preprocessing review
+
+This pilot-scoped diagnostic extends raw replay to all 512 channels. Run in the root `.venv`, with a fresh result destination:
+
+```powershell
+.venv\Scripts\python.exe scripts/review_pilot_artifacts.py --output results/extra4_shank0/pilot01-w7a-reviewed
+.venv\Scripts\python.exe scripts/validate_artifact_review.py --report results/extra4_shank0/pilot01-w7a-reviewed
+.venv\Scripts\python.exe scripts/plot_artifact_event_details.py --report results/extra4_shank0/pilot01-w7a-reviewed
+.venv\Scripts\python.exe -m unittest tests.test_artifact_review
+```
+
+The completed destination already exists and must not be overwritten; use a new name for another generation. The generator verifies the pilot binary, 169 frozen payloads and detector-sidecar identities before/after, compares every channel's independent flat-run interval union against frozen and native guards, and writes `channel_coverage.csv`, `flat_runs.csv`, `guard_intervals.csv` and `guard_tracks.npz`. Counts of simultaneous flat channels and simultaneous padded guards are distinct. Guards remain annotations, never applied masks.
+
+`window_selection.csv` selects all broad coincidence intervals, the three largest other-channel guard-concurrency peaks (earliest ties, centers more than 10,000 samples apart), and first/middle/last cluster-36 event ranks inside/outside its peak guard with complete context. Each NPZ saves all 512 raw and transformed channels over center ±500 samples, absolute sample indices and original event indices. Fixed eight-channel spatial coverage is displayed for shared episodes; nearest eight channels to b248 for cluster 36. Raw context displays subtract each channel's first-200-sample median and multiply by 1e6, with stated offsets and no voltage calibration. Transformed channels have 15-unit offsets. Red bands show global broad warnings, not artifact truth. `flagged_events.csv` is the union of broad, tight and peak-channel guard flags.
+
+Unlike the baseline CPU report, this explicitly authorized reconstruction loads the **hash-verified local saved `ops.npy`** using Kilosort's loader. It overrides the obsolete binary path and uses saved filter, CAR, whitening and drift parameters through `bfile_from_ops`, with no sorter run or upstream package edits. Three historical batch-statistic anchors must match within rtol/atol 1e-5. Excerpts use the corresponding batch cores; no excerpt-level filtering or fabricated context. The audit independently maps absolute indices through reader-returned batch bounds and checks reconstructed values within 1e-6, rereads every saved raw value, verifies event identities, tests all saved flat-run boundaries and rebuilds guard concurrency via difference arrays. This checks saved preprocessing reconstruction, not full sorter equivalence under the repaired environment.
+
+`window_metrics.csv` describes all events and amplitudes in each context. Its count of channels ever exceeding absolute transformed amplitude 6 is an exploratory descriptor, not a detection threshold or an exclusion criterion. `coincidence_interval_audit.csv` separates event counts inside warnings from surrounding-context counts. `independent_checks.json` records validation and exact-flat concurrency.
+
+Event details select first/middle/last broad-warning event ranks per interval plus the six existing cluster-36 events. `detail_selection.csv` pins identities and nearest four channels to each original template peak. Details cover offsets -30 through +50; raw baseline uses -30 through -21. These are descriptive closeups without shape-based selection or new labels. The final manifest covers all figures, CSV/NPZ files, audit and detail provenance; findings are versioned [separately](reviews/2026-11-23-w7a-artifact-findings.md).
