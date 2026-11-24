@@ -8,7 +8,7 @@ The preserved extra_4/shank0 pilot has 39,620 events, 59 clusters (24 automated 
 
 Data, Python environments and viewer launchers are now inside this root; the old sibling worker is preserved under ignored `worker_returns/worker-snapshot`. The original transfer package remains in `get_started`. No remote is configured and no changes were published.
 
-**Runtime status:** The Windows DLL issue is resolved in the active environments with FAISS 1.13.2. Kilosort 4.1.7 imports, nearest-neighbor calculations, CUDA and offscreen GUI startup pass. Smart App Control remains enabled. The historical pilot retains FAISS 1.16.0 provenance; no sorting was repeated. See [the repair round](docs/development/rounds/2026-11-22-03-windows-dll-repair.md).
+**Runtime status:** The Windows DLL issue is resolved with FAISS 1.13.2 and Smart App Control enabled. W7B's new full-channel control reproduces the historical pilot's principal arrays and labels byte-for-byte. A separate channel-248 exclusion experiment is complete; see [W7B findings](docs/reviews/2026-11-23-w7b-sensitivity-findings.md). The historical pilot retains FAISS 1.16.0 provenance and remains unchanged.
 
 Integer sample indices are authoritative; nominal sampling is 10,000 Hz and physical sampling 10,080 Hz. Automated good labels are not confirmed neurons. No masking, merging, resampling or relabeling has been adopted. Other-shank/extra_5 expansion needs source data and pilot acceptance; extra_6 and stimulation-period handling remain deferred.
 

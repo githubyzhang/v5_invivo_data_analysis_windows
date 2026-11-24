@@ -66,3 +66,25 @@ Unlike the baseline CPU report, this explicitly authorized reconstruction loads 
 `window_metrics.csv` describes all events and amplitudes in each context. Its count of channels ever exceeding absolute transformed amplitude 6 is an exploratory descriptor, not a detection threshold or an exclusion criterion. `coincidence_interval_audit.csv` separates event counts inside warnings from surrounding-context counts. `independent_checks.json` records validation and exact-flat concurrency.
 
 Event details select first/middle/last broad-warning event ranks per interval plus the six existing cluster-36 events. `detail_selection.csv` pins identities and nearest four channels to each original template peak. Details cover offsets -30 through +50; raw baseline uses -30 through -21. These are descriptive closeups without shape-based selection or new labels. The final manifest covers all figures, CSV/NPZ files, audit and detail provenance; findings are versioned [separately](reviews/2026-11-23-w7a-artifact-findings.md).
+
+## W7B matched channel-exclusion experiment
+
+Pilot-specific execution in root `.venv`; completed destinations below must not be overwritten:
+
+```powershell
+.venv\Scripts\python.exe scripts/run_w7b.py --condition control --output results/extra4_shank0/w7b-control01
+.venv\Scripts\python.exe scripts/run_w7b.py --condition exclude248 --output results/extra4_shank0/w7b-exclude248-01
+.venv\Scripts\python.exe scripts/review_w7b.py --control results/extra4_shank0/w7b-control01 --exclusion results/extra4_shank0/w7b-exclude248-01 --output results/extra4_shank0/w7b-review01
+.venv\Scripts\python.exe scripts/validate_w7b.py --report results/extra4_shank0/w7b-review01 --control results/extra4_shank0/w7b-control01 --exclusion results/extra4_shank0/w7b-exclude248-01
+.venv\Scripts\python.exe -m unittest tests.test_w7b_review
+```
+
+The launcher reads frozen resolved settings, removes obsolete path fields, and explicitly passes all scientific settings to Kilosort 4.1.7. It checks the binary and frozen return before/after. `bad_channels=[248]` is the only experimental channel-selection change; the binary remains 512 columns. Each fresh condition has its own preprocessing, `run_contract.json`, dependency lock, status, Kilosort logs/outputs and output manifest. Internal seed behavior is recorded, without claiming universal GPU determinism. Hash-verified newly generated ops are read to check resolved settings and channel counts; no historical ops are modified.
+
+The review verifies both run manifests and matched contracts. `run_metrics.csv` and `cluster_metrics.csv` retain original IDs within each run, automated labels, estimated contamination, <10/<20-sample ISI counts, full-exposure nominal/physical rates and warning counts. Coincidence intervals retain their 2048-channel extra_4 population; unavailable assessment is distinguished from unflagged time. `b248_guard_time_events` counts all events occurring during b248's guards, irrespective of spatial support. `peak_guard_events` uses each run's own template-peak electrode. Neither defines an exclusion or a rate denominator.
+
+`raw_selection.csv` records up to 128 evenly spaced complete event ranks per cluster over [-100,+100]. Every raw channel is retained in `*_raw_means.npz`, with median baseline over [-100,-31], original sample units and 10-second counts. Display scaling is x1e6 without voltage calibration. Comparisons use original physical channel IDs, never array-column equality after channel removal. Each pair's correlation uses 12 channels nearest either template peak, excluding b248, over [-20,+40]. Empty-context raw means are NaN, not fabricated waveforms.
+
+`*_pairs.csv` enumerates nonzero pairwise event-time matches within inclusive +/-2 samples. Chronological matching maximizes one-to-one match count within each pair, without reusing an event inside that pair; exact-match counts refer to that chosen matching, not an independently optimized exact-match assignment. Different candidate pairs can reuse events. `*_top3.csv` ranks by Dice, matched count, then right cluster ID. Rankings, even rank 1, are not accepted identities or a forced global matching. Six target figures compare historical clusters 34/35/5/12/36/2 with their highest-ranked candidates and time profiles; a weak candidate can explicitly mean no supported counterpart.
+
+Independent validation compares seven historical/control payloads byte-for-byte, rereads all selected raw windows to reproduce means, verifies event identities/counts/ISIs/bins, checks the exclusion map and re-verifies every input manifest. `report-manifest.json` covers the final review plus audit, excluding itself. Interpretation and adoption limits live in the [W7B findings](reviews/2026-11-23-w7b-sensitivity-findings.md).

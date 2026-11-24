@@ -1,0 +1,13 @@
+# W7B — Matched all-channel and channel-248 exclusion sorts
+
+Date: 2026-11-23. State: experiment and diagnostic comparison complete; scientific adoption and curation pending.
+
+User authorized W7B and explicitly deferred SpikeInterface. Added a fresh-output launcher that pins frozen scientific settings, checks input hashes, records the active runtime and seed policy, and validates the resulting channel map. Ran root `.venv` on CUDA for both conditions. No archived environment, original data or original result was changed.
+
+The new all-channel control reproduces historical spike times, assignments, templates, amplitudes, channel map, automated labels and contamination table byte-for-byte. It has 39,620 events / 59 clusters / 24 good. Excluding binary channel 248 using the supported `bad_channels` argument, while retaining the 512-column input, produces 38,687 events / 58 clusters / 19 good. Preprocessing is estimated independently for each condition. Both retain FAISS 1.13.2 provenance; the historical pilot remains labeled 1.16.0.
+
+Added comparison and independent-validation scripts plus two matching tests. Compared event-time overlaps, common-channel raw means, short ISIs, contamination, 10-second stability and external warnings. All six target figures were visually reviewed. Four promising populations are strongly represented; the old cluster-36 population has no convincing counterpart. Old cluster 2 and other changed populations remain unresolved. Lower counts/automated-good counts do not by themselves establish an improvement.
+
+Validation: all 169 frozen payloads and full pilot binary unchanged after both sorts and review; both fresh run manifests valid; exclusion channel map exactly equals original map minus 248; all resolved scientific settings retained. Independent audit checks 17,543 selected raw windows and 1,805,385,216 values, reproduces raw means exactly, verifies event identities, short-ISI counts and activity bins. Matching tests include inclusive endpoints, non-reuse and an independent dynamic-programming count oracle. No further control was needed after observed byte identity for the specified historical/control outputs; repeated-seed variability is not comprehensively characterized.
+
+[Findings](../../reviews/2026-11-23-w7b-sensitivity-findings.md) own interpretation and the next curation checkpoint. [Quality contract](../../WINDOWS_QUALITY.md#w7b-matched-channel-exclusion-experiment) owns execution and output definitions. [Local report](../../../results/extra4_shank0/w7b-review01/index.html) links metrics and figures. No automatic curation, unit acceptance, temporal masking, baseline replacement, commit or push was performed.
