@@ -88,3 +88,23 @@ The review verifies both run manifests and matched contracts. `run_metrics.csv` 
 `*_pairs.csv` enumerates nonzero pairwise event-time matches within inclusive +/-2 samples. Chronological matching maximizes one-to-one match count within each pair, without reusing an event inside that pair; exact-match counts refer to that chosen matching, not an independently optimized exact-match assignment. Different candidate pairs can reuse events. `*_top3.csv` ranks by Dice, matched count, then right cluster ID. Rankings, even rank 1, are not accepted identities or a forced global matching. Six target figures compare historical clusters 34/35/5/12/36/2 with their highest-ranked candidates and time profiles; a weak candidate can explicitly mean no supported counterpart.
 
 Independent validation compares seven historical/control payloads byte-for-byte, rereads all selected raw windows to reproduce means, verifies event identities/counts/ISIs/bins, checks the exclusion map and re-verifies every input manifest. `report-manifest.json` covers the final review plus audit, excluding itself. Interpretation and adoption limits live in the [W7B findings](reviews/2026-11-23-w7b-sensitivity-findings.md).
+
+## W8 focused curation checkpoint
+
+Use root `.venv` with a fresh report path; existing completed output is immutable evidence for this checkpoint:
+
+```powershell
+.venv\Scripts\python.exe scripts/review_w8_checkpoint.py --output results/extra4_shank0/w8-checkpoint01
+.venv\Scripts\python.exe scripts/validate_w8_checkpoint.py --report results/extra4_shank0/w8-checkpoint01
+.venv\Scripts\python.exe -m unittest tests.test_round2_review tests.test_w7b_review
+```
+
+The generator pins both W7B run manifests and the earlier review, then recomputes the installed Kilosort label criteria for every cluster. `label_criteria.csv` stores eligibility (>10 events and nonzero span), R, Q and both strict <0.2 tests; no label is overwritten. This is reproduction of the algorithm, not independent validation that its labels are biologically correct.
+
+Fourteen named pair selections in the script cover promising candidates, selected high-template-similarity neighbors, changed populations and their competitors. The list is bounded, not an exhaustive neighbor/duplicate search. Up to 256 evenly spaced complete event ranks per cluster/pair are extracted over [-100,+100], on the same 12 nearest physical channels to either peak. Raw windows are scaled by 1e6 then centered using the median over [-100,-31]. Saved NPZs contain raw windows, original event indices, physical channel IDs, feature projections, PCA parameters and all b-a cross-lags within inclusive ±500 samples. PCA uses balanced up-to-256-per-group training and all shared stored PC dimensions; the plot caps each group at 1,500 events. **Convert `pc_feature_ind` through the active channel map** before combining physical channels after exclusion. A small shared-feature intersection limits interpretation even when spatial raw support differs.
+
+`pair_metrics.csv` includes raw correlation over [-20,+40], common-feature coverage, pair counts within ≤2 / <10 / <20 samples and hypothetical union ISIs. These are descriptive, without chance normalization or merge adoption. Quarter files use up to 128 complete events per 75-second quarter and compare with a separately selected pooled up-to-256 reference on eight nearest channels. Reference/quarter selections can overlap, so their correlations are not independent statistical tests.
+
+The independent audit rereads every saved pair window and quarter/reference selection, reproduces means, inverts the binary channel map to reconstruct features, verifies projections, and brute-forces pair-lag lists. It also records old31/33's union correspondence and candidate-level automatic-good bookkeeping. Six existing helper tests cover the reused interval, lag, feature/PCA and matching functions.
+
+After visual review, the versioned [proposal ledger](reviews/2026-11-23-w8-curation-proposals.csv) is copied into the packet, and `working_run_recommendation.json` explicitly records proposed/not-adopted state, pending human acceptance and unchanged originals. Final report assembly adds links and refreshes the manifest. Rerunning evidence generation alone does not reproduce scientific review decisions; those are authored in the versioned [findings](reviews/2026-11-23-w8-curation-findings.md). Every exclusion cluster is accounted for as recommended, held, boundary-only or outside acceptance scope; outside scope is not rejection. The ledger pins source arrays and preserves original automated labels separately from recommendations. Human adoption must be recorded in a new revision, never by silently rewriting these proposals or sorter output labels.
