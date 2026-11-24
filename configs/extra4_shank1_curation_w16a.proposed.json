@@ -1,0 +1,72 @@
+{
+  "schema": "curation-proposal-checkpoint-v1",
+  "date": "2026-11-24",
+  "state": "proposed_not_accepted",
+  "shank_zero_based": 1,
+  "run_id": "w15a-allchannels01",
+  "report": "results/extra4_shank1/w16a-checkpoint01",
+  "proposal_counts": {
+    "propose_putative": 5,
+    "hold": 13,
+    "withhold": 15
+  },
+  "proposal_event_counts": {
+    "propose_putative": 9816,
+    "hold": 1471,
+    "withhold": 37
+  },
+  "putative_candidate_ids": [
+    1,
+    4,
+    7,
+    11,
+    23
+  ],
+  "held_ids": [
+    3,
+    5,
+    6,
+    8,
+    9,
+    10,
+    15,
+    16,
+    17,
+    24,
+    27,
+    28,
+    29
+  ],
+  "withheld_ids": [
+    0,
+    2,
+    12,
+    13,
+    14,
+    18,
+    19,
+    20,
+    21,
+    22,
+    25,
+    26,
+    30,
+    31,
+    32
+  ],
+  "units_accepted": false,
+  "events_removed": false,
+  "merge_applied": false,
+  "policy_adopted": false,
+  "pinned_files": {
+    "configs/extra4_working_runs.v1.json": "de0bf7d4de56220cde1d14df6e7a9c43c2ed16c1f62064b8eaba8b6c3d4b622f",
+    "scripts/curation_review.py": "0e9cdfdb6d68d40c4cd9132592c0844b272b6d7e988d21490f164ad763ea9a52",
+    "scripts/validate_curation_review.py": "80ba8d4303ced3544fb0bdc530fb4a512495f95393de9c98ef0a08724bf9b3bd",
+    "docs/reviews/2026-11-24-w16a-shank1-proposal-ledger.csv": "953258dcd0797e916d39e53e604b8d30ee79e38427a70df1ea8293a06de1a35e",
+    "docs/development/rounds/2026-11-24-10-w16a-shank1-curation.md": "2f1e12b1b543168a06cd1081aa83d88d03a6bbcac0bf7209ca8b2986745f7de8",
+    "results/extra4_shank1/w16a-review01/report-manifest.json": "a5d2fa5813914762dd95fe749d10b459032b60b6a381736edc286cb8ddec4bfd",
+    "results/extra4_shank1/w16a-validation01/manifest.json": "b12f8546f139b3ba085814ecc5e49904ceaa4cc37f2c9defd15022cacd1a5567",
+    "results/extra4_shank1/w16a-short-isi01/manifest.json": "8ce51c5c94c46ea4630c2f3cd2384c966c7cb300281a62dfd75dc60ee9a0ddc7",
+    "results/extra4_shank1/w16a-checkpoint01/report-manifest.json": "a200b04f43876b29748b973294095e089921ad4deacc5ac980880e6d60fca482"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "schema": "extra4-working-run-set-v1",
+  "date": "2026-11-24",
+  "state": "user_selected",
+  "authorization": "User: I accept these three runs for continued curation. Please record the selection and proceed with W16A.",
+  "proposal_path": "configs/extra4_working_runs_w15d.proposed.json",
+  "proposal_sha256": "268932b86e8d8e691512b6f8c3061ca3eac6124c631f62a8a2dadc1ce01584e3",
+  "checkpoint_manifest_sha256": "c2be4a3550d684324cb644d67270e4da074ca30cb42855c912592fa461caf036",
+  "shank0_release": "configs/extra4_shank0_release.v1.json",
+  "shank0_release_sha256": "15ab96fc1ff02fcfefe6c1f9ba7552564f905187456c4940a4d6a8dd1f825aec",
+  "runs": [
+    {
+      "shank_zero_based": 1,
+      "run_id": "w15a-allchannels01",
+      "run_path": "results/extra4_shank1/w15a-allchannels01",
+      "baseline_report": "results/extra4_shank1/w15a-baseline-review01",
+      "excluded_binary_channels": [],
+      "excluded_global_channels": [],
+      "run_manifest_sha256": "b714f930d0eb7dff405bbc262462ef41ddec2661c058e68fc44131b2a1c3ba18",
+      "selection_state": "user_selected",
+      "cluster_acceptance_state": "not_curated",
+      "priority_clusters": {
+        "2": "No complete raw context; boundary/sparse review.",
+        "18": "No complete raw context; boundary/sparse review.",
+        "30": "No complete raw context; boundary/sparse review."
+      },
+      "limitations": "All-channel baseline is supported; W14 found no persistent channel-specific exclusion target."
+    },
+    {
+      "shank_zero_based": 2,
+      "run_id": "w15b-exclude54-14801",
+      "run_path": "results/extra4_shank2/w15b-exclude54-14801",
+      "baseline_report": "results/extra4_shank2/w15b-exclusion-review01",
+      "excluded_binary_channels": [
+        54,
+        148
+      ],
+      "excluded_global_channels": [
+        872,
+        353
+      ],
+      "run_manifest_sha256": "e8460a4e57b87ea9316c3e296b3a724a6b681283fb75a7bf23f831a24409b619",
+      "selection_state": "user_selected",
+      "cluster_acceptance_state": "not_curated",
+      "priority_clusters": {
+        "0": "b10 remains compromised; review raw support and exposure.",
+        "6": "Control good c6 loses events and becomes mua.",
+        "27": "Control good c30 becomes mua; contamination increases.",
+        "38": "Control good c41 becomes mua; contamination increases.",
+        "39": "Control mua c42 becomes good; not acceptance.",
+        "17": "Lower cross-run overlap with control c19.",
+        "26": "Lower cross-run overlap with control c29.",
+        "9": "Lower cross-run overlap with control c9.",
+        "43": "b367 concern; single boundary event."
+      },
+      "limitations": "Exclude two persistently compromised electrodes; preserve changed candidates and remaining-channel quality concerns."
+    },
+    {
+      "shank_zero_based": 3,
+      "run_id": "w15c-exclude25901",
+      "run_path": "results/extra4_shank3/w15c-exclude25901",
+      "baseline_report": "results/extra4_shank3/w15c-exclusion-review01",
+      "excluded_binary_channels": [
+        259
+      ],
+      "excluded_global_channels": [
+        2045
+      ],
+      "run_manifest_sha256": "df6db935fab92a26b42dee92c990c967daec17cb5067334fe75a1663c2997184",
+      "selection_state": "user_selected",
+      "cluster_acceptance_state": "not_curated",
+      "priority_clusters": {
+        "1": "Joint review with c2: possible split of control c0, not another proven neuron.",
+        "2": "Joint review with c1 and 14 core-zone events; no merge adopted.",
+        "10": "Lower cross-run overlap; temporal support.",
+        "21": "Sparse temporal support: 70 events.",
+        "25": "29 events; no first-quarter events.",
+        "26": "177-to-296 event redistribution from control c23.",
+        "34": "Lower cross-run overlap; temporal support.",
+        "16": "One shared-core event; per-unit exposure review.",
+        "30": "Two shared-core events; per-unit exposure review.",
+        "38": "b403 remains compromised; single-event mua.",
+        "41": "b486 remains compromised; single-event mua."
+      },
+      "limitations": "Provisional curation run avoiding compromised b259; shared signal loss persists and overall artifact improvement is not established."
+    }
+  ],
+  "mix_clusters_across_runs": false,
+  "new_units_accepted": false,
+  "temporal_mask_adopted": false,
+  "analysis_policy_adopted": false
+}
