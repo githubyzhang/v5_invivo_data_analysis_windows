@@ -1,0 +1,30 @@
+{
+  "schema": "extra4-derived-curation-provenance-v1",
+  "state": "accepted_derived_validated",
+  "date": "2026-11-24",
+  "revision": "v1",
+  "shanks": [
+    1,
+    2,
+    3
+  ],
+  "units": 30,
+  "events": 43796,
+  "omitted_events": 12,
+  "report": "results/extra4/w16d-curated-v1",
+  "validation": "results/extra4/w16d-curated-validation01",
+  "held_clusters_deferred": 51,
+  "withheld_clusters": 47,
+  "original_outputs_modified": false,
+  "local_report_links_checked": 18,
+  "pinned_files": {
+    "configs/extra4_shanks123_curated_v1.json": "9692ccbd9789d30d3e339d5c2e718dee39fd00a0169f07bf1c02a4b6581af015",
+    "configs/extra4_shank0_release.v1.json": "15ab96fc1ff02fcfefe6c1f9ba7552564f905187456c4940a4d6a8dd1f825aec",
+    "scripts/build_w16d_curated.py": "62a334cad911abb64f333d335348debff60b81c4f291b5e4c6fabee60da0eec6",
+    "scripts/validate_w16d_curated.py": "5af552aa705bf0382935274e12ac083b7c2c630ba1ad7c7adb39781cbbe84d1f",
+    "docs/reviews/2026-11-24-w16d-accepted-curation-ledger.csv": "ad6e08cccc3649df95f158c041af2f442d55b43cdedfbdb764c5a7f8fbd0fbfc",
+    "docs/development/rounds/2026-11-24-14-w16d-accepted-derived.md": "8d3882a698a1831530147dfff66cda910810289cf9dfb8124f8560f7a6cee69c",
+    "results/extra4/w16d-curated-v1/manifest.json": "cc5bf7590ba2df8dde9bca496f54e4f3867dc520a7f6c91875f1c27d7c80ee7b",
+    "results/extra4/w16d-curated-validation01/manifest.json": "a7e8d8947598ab5d676dce9ed2dc9853b67fbe6ea8dfeeed6856560698fbc4e3"
+  }
+}

@@ -9,6 +9,7 @@ Start with the [roadmap](docs/development/roadmap.md) for current status, pendin
 | Windows environments and storage | [Windows setup](docs/development/windows-setup.md) |
 | Review methods and output contracts | [Windows quality reference](docs/WINDOWS_QUALITY.md) |
 | Accepted shank0 result | [W12 report](results/extra4_shank0/w12-curated-v1/index.html), [decision ledger](docs/reviews/2026-11-24-w12-curation-ledger.csv), [W13 release](configs/extra4_shank0_release.v1.json) |
+| Accepted shanks1–3 results | [W16D report](results/extra4/w16d-curated-v1/index.html), [decision ledger](docs/reviews/2026-11-24-w16d-accepted-curation-ledger.csv), [accepted subsets and policies](configs/extra4_shanks123_curated_v1.json) |
 | Remaining-shank inputs and proposals | [W14 findings](docs/reviews/2026-11-24-w14-input-channel-review.md), [input/proposal metadata](configs/extra4_remaining_shanks_w14.proposed.json) |
 | GUI/Phy viewing | [Viewer guide](docs/development/viewers.md); the Phy launcher opens a historical pilot copy |
 | Current imported Mac detector | [Windows detector guide](docs/CUSTOM_PIPELINE_WINDOWS.md) |
