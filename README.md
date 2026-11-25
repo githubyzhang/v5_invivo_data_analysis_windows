@@ -7,7 +7,7 @@ Start with the [roadmap](docs/development/roadmap.md) for current status, pendin
 | Need | Reference |
 | --- | --- |
 | Windows environments and storage | [Windows setup](docs/development/windows-setup.md) |
-| Reviewed four-shank extra_4 release v1 | [W17 report](results/extra4/w17-release-v1/index.html), [all 186 cluster decisions](docs/reviews/2026-11-24-w17-four-shank-ledger.csv), [release metadata](configs/extra4_release.v1.json) |
+| Reviewed four-shank extra_4 release v1 | [W17 report, revised](results/extra4/w17-report-revision02/index.html), [all 186 cluster decisions](docs/reviews/2026-11-24-w17-four-shank-ledger.csv), [release metadata](configs/extra4_release.v1.json) |
 | Review methods and output contracts | [Windows quality reference](docs/WINDOWS_QUALITY.md) |
 | Accepted shank0 result | [W12 report](results/extra4_shank0/w12-curated-v1/index.html), [decision ledger](docs/reviews/2026-11-24-w12-curation-ledger.csv), [W13 release](configs/extra4_shank0_release.v1.json) |
 | Accepted shanks1–3 results | [W16D report](results/extra4/w16d-curated-v1/index.html), [decision ledger](docs/reviews/2026-11-24-w16d-accepted-curation-ledger.csv), [accepted subsets and policies](configs/extra4_shanks123_curated_v1.json) |

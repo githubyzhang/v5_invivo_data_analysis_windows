@@ -1,0 +1,20 @@
+{
+  "schema": "extra4-presentation-revision-v1",
+  "presentation_revision": 2,
+  "scientific_release": "extra4-reviewed-four-shank-v1",
+  "state": "validated",
+  "date": "2026-11-24",
+  "report": "results/extra4/w17-report-revision02",
+  "units": 41,
+  "events": 62048,
+  "cluster_rows": 186,
+  "scientific_decisions_changed": false,
+  "unit_schema_corrected": true,
+  "pinned_files": {
+    "configs/extra4_release.v1.json": "88a06dfee6d5268543cb7b9f4818d728ca2a70e82b8a980f9b12760dd702b170",
+    "scripts/revise_w17_report.py": "9e9a8ddaef19729eb634c7ebd4573e47277e4be8546863c66c72a070508a23cd",
+    "scripts/export_w17_units.mjs": "89216ea50a38c7eaaf10a60bd25ad26e91d2940856f3cc14ab0bdad3d8ccd28f",
+    "docs/development/rounds/2026-11-24-16-w17-report-revision.md": "b4b162bfd55637fdc07b6ad057e6f2fcfd79b81685d26fba269f45362e13ec82",
+    "results/extra4/w17-report-revision02/manifest.json": "dba172717024bafadbb86bbf17de72e46b2325bc13fe50d901062c1e05700490"
+  }
+}
