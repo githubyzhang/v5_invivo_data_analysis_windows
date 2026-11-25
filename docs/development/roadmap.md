@@ -1,6 +1,6 @@
 # Windows Kilosort4 roadmap
 
-Updated: 2026-11-24. This is the single current tracker. **W16D is complete: the user accepted 30 putative units and their per-shank policies; derived v1 contains 43,796 events across shanks1–3. Held clusters are deferred for later review. Next: W17 combined four-shank release and reproducibility audit.**
+Updated: 2026-11-24. This is the single current tracker. **W17 is complete: reviewed four-shank extra_4 release v1 contains 41 accepted putative units and 62,048 analysis events. All 186 selected-run clusters are accounted for; 89 holds remain deferred and 56 are withheld. The agreed release milestone is achieved.**
 
 ## Current state and decisions
 
@@ -14,14 +14,14 @@ Updated: 2026-11-24. This is the single current tracker. **W16D is complete: the
 
 **Decision boundary:** The selected runs remain fixed in the [run registry](../../configs/extra4_working_runs.v1.json). The user separately accepted the 30 putative units and the W16D analysis policy, recorded in [accepted v1](../../configs/extra4_shanks123_curated_v1.json). Historical W16A/B/C and W16D proposal files remain unchanged. The [accepted ledger](../reviews/2026-11-24-w16d-accepted-curation-ledger.csv) records 30 accepted, 51 deferred holds and 47 withheld; no merge or source relabeling. Automatic good labels are not curated neurons. Shank0's W12 acceptance remains unchanged.
 
-Latest record: [W16D accepted derived revision](rounds/2026-11-24-14-w16d-accepted-derived.md), [derived report](../../results/extra4/w16d-curated-v1/index.html), [provenance](../../configs/extra4_shanks123_derived_v1.json). Previous [W16D acceptance proposal](rounds/2026-11-24-13-w16d-acceptance-proposal.md), [acceptance report](../../results/extra4/w16d-proposal01/index.html), [exact policy](../../configs/extra4_w16d_acceptance.proposed.json). Previous [W16C full shank3 review](rounds/2026-11-24-12-w16c-shank3-curation.md), [all-cluster ledger](../reviews/2026-11-24-w16c-shank3-proposal-ledger.csv), [checkpoint report](../../results/extra4_shank3/w16c-checkpoint01/index.html). Previous [W16B full shank2 review](rounds/2026-11-24-11-w16b-shank2-curation.md), [all-cluster proposal ledger](../reviews/2026-11-24-w16b-shank2-proposal-ledger.csv), [checkpoint report](../../results/extra4_shank2/w16b-checkpoint01/index.html). Previous [W16A shank1 review](rounds/2026-11-24-10-w16a-shank1-curation.md). Prior [W15D checkpoint](rounds/2026-11-24-09-w15d-working-run-checkpoint.md) retains its pending-at-the-time wording. Planning history: [post-W14 plan](rounds/2026-11-24-04-extra4-release-plan.md) and [original W9-W17 plan](rounds/2026-11-23-08-extra4-roadmap-plan.md). Older records describe their own date and scope, not current pending work.
+Latest record: [W17 four-shank release](rounds/2026-11-24-15-w17-four-shank-release.md), [release report](../../results/extra4/w17-release-v1/index.html), [release metadata](../../configs/extra4_release.v1.json), [all-cluster ledger](../reviews/2026-11-24-w17-four-shank-ledger.csv). Previous [W16D accepted derived revision](rounds/2026-11-24-14-w16d-accepted-derived.md), [derived report](../../results/extra4/w16d-curated-v1/index.html), [provenance](../../configs/extra4_shanks123_derived_v1.json). Previous [W16D acceptance proposal](rounds/2026-11-24-13-w16d-acceptance-proposal.md), [acceptance report](../../results/extra4/w16d-proposal01/index.html), [exact policy](../../configs/extra4_w16d_acceptance.proposed.json). Previous [W16C full shank3 review](rounds/2026-11-24-12-w16c-shank3-curation.md), [all-cluster ledger](../reviews/2026-11-24-w16c-shank3-proposal-ledger.csv), [checkpoint report](../../results/extra4_shank3/w16c-checkpoint01/index.html). Previous [W16B full shank2 review](rounds/2026-11-24-11-w16b-shank2-curation.md), [all-cluster proposal ledger](../reviews/2026-11-24-w16b-shank2-proposal-ledger.csv), [checkpoint report](../../results/extra4_shank2/w16b-checkpoint01/index.html). Previous [W16A shank1 review](rounds/2026-11-24-10-w16a-shank1-curation.md). Prior [W15D checkpoint](rounds/2026-11-24-09-w15d-working-run-checkpoint.md) retains its pending-at-the-time wording. Planning history: [post-W14 plan](rounds/2026-11-24-04-extra4-release-plan.md) and [original W9-W17 plan](rounds/2026-11-23-08-extra4-roadmap-plan.md). Older records describe their own date and scope, not current pending work.
 
 <a id="planned-rounds-extra_4-through-a-full-recording-checkpoint"></a>
 <a id="proposed-next-milestone-reviewed-four-shank-extra_4-release-v1"></a>
 
-## Next milestone: reviewed four-shank extra_4 release v1
+## Completed milestone: reviewed four-shank extra_4 release v1
 
-The user accepted this sequence after W14. Target: a selected run per analyzed shank, a decision/reason for every output cluster, explicitly accepted putative-unit subsets and analysis policies, and combined event/unit tables and summaries on the original sample axis. Reuse shank0's frozen v1. Review coverage, not a target neuron count, determines completion.
+The user accepted this sequence after W14. Achieved at W17: a selected run per analyzed shank, a decision/reason for every output cluster, explicitly accepted putative-unit subsets and analysis policies, and combined event/unit tables and summaries on the original sample axis. Reuse shank0's frozen v1. Review coverage, not a target neuron count, determines completion.
 
 | Round | Bounded work | Exit condition |
 | --- | --- | --- |
@@ -33,13 +33,17 @@ The user accepted this sequence after W14. Target: a selected run per analyzed s
 | W16B - Complete: shank2 proposals | Review every cluster in the selected shank2 run using the validated tools; prioritize altered populations and remaining channel-quality concerns. | Full shank2 proposal ledger with accept-as-putative, hold and withhold reasons. |
 | W16C - Complete: shank3 proposals and exposure review | Review every selected-run cluster with explicit attention to shared episodes, local event concentration and waveform/temporal support. | Full shank3 proposal ledger; identify whether annotation-only handling is sufficient for each proposed analysis or further evidence is needed. |
 | W16D - Complete: accepted subsets, policies and derived v1 | Present concrete per-shank subsets and exposure policies for explicit acceptance. Then create versioned derived tables, rasters, rates, waveform/amplitude summaries and omission/quality records. | Accepted revisions with preserved original identities and auditable denominators; proposals remain separate from adopted decisions. |
-| W17 - Combined release and reproducibility audit | Combine accepted shank0-3 revisions; check common time axis, run-qualified identities, mapping, counts, flags and manifests; replay derived summaries and issue a recording-wide report. | Reviewed extra_4 release v1, with accepted units, all-cluster ledgers, holds/withholds, quality limitations and reproducible provenance. |
+| W17 - Complete: combined release and reproducibility audit | Combine accepted shank0-3 revisions; check common time axis, run-qualified identities, mapping, counts, flags and manifests; replay derived summaries and issue a recording-wide report. | Reviewed extra_4 release v1, with accepted units, all-cluster ledgers, holds/withholds, quality limitations and reproducible provenance. |
 
 Allow approximately **nine substantive working rounds**, not necessarily nine chats. W16A-C may split into screening and focused follow-up once cluster counts are known; W16D may split at acceptance. **W15D is the earlier checkpoint:** working-run recommendations/decisions ready for curation.
 
 If W15C or W16C cannot support a defensible shank3 result, add a bounded diagnostic/sensitivity round. Preserve original inputs and baselines, state the hypothesis and validate any proposed intervention and its exposure consequences. Other shanks can proceed independently. A result omitting unresolved shank3 is partial; a fully reviewed shank may legitimately yield no accepted units, with explicit reasons.
 
 Release requires complete cluster accounting, explicit subset/policy acceptance, checked mapping/time/counts, quality availability distinguished from clean data, matching event/exposure denominators and reproducible provenance. Do not infer cross-shank neuron uniqueness or complete neuron recovery.
+
+## Next work
+
+No additional sorting or curation round is automatically scheduled. Use the accepted release for a separately scoped analysis, or return to held clusters in a later focused review. Any unit/policy changes require a new accepted revision; preserve v1. Generated artifacts still require separate backup outside Git.
 
 ## Implementation references and boundaries
 
