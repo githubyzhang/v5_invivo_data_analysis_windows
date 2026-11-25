@@ -1,0 +1,139 @@
+{
+  "schema": "extra4-w16d-subset-policy-proposal-v1",
+  "state": "awaiting_user_acceptance",
+  "date": "2026-11-24",
+  "recording": "extra_4",
+  "shanks": [
+    {
+      "shank": 1,
+      "run_id": "w15a-allchannels01",
+      "candidate_ids": [
+        1,
+        4,
+        7,
+        11,
+        23
+      ],
+      "units": 5,
+      "original_events": 9816,
+      "proposed_events": 9816,
+      "omitted_events": 0,
+      "exposure_samples": 2999800,
+      "nominal_seconds": 299.98,
+      "physical_seconds": 297.5992063492063,
+      "primary_policy": "interior_annotated"
+    },
+    {
+      "shank": 2,
+      "run_id": "w15b-exclude54-14801",
+      "candidate_ids": [
+        1,
+        2,
+        3,
+        8,
+        9,
+        12,
+        15,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        25,
+        26,
+        41
+      ],
+      "units": 17,
+      "original_events": 27539,
+      "proposed_events": 27537,
+      "omitted_events": 2,
+      "exposure_samples": 2999800,
+      "nominal_seconds": 299.98,
+      "physical_seconds": 297.5992063492063,
+      "primary_policy": "interior_annotated"
+    },
+    {
+      "shank": 3,
+      "run_id": "w15c-exclude25901",
+      "candidate_ids": [
+        5,
+        10,
+        14,
+        16,
+        20,
+        26,
+        30,
+        34
+      ],
+      "units": 8,
+      "original_events": 6453,
+      "proposed_events": 6443,
+      "omitted_events": 10,
+      "exposure_samples": 2918240,
+      "nominal_seconds": 291.824,
+      "physical_seconds": 289.5079365079365,
+      "primary_policy": "interior_without_shared_core_and_shoulder"
+    }
+  ],
+  "units_accepted": false,
+  "policy_adopted": false,
+  "original_outputs_modified": false,
+  "merge_or_split": false,
+  "interior_half_open": [
+    100,
+    2999900
+  ],
+  "nominal_fs_hz": 10000,
+  "physical_fs_hz": 10080,
+  "shared_definition": "Shank3 W15C core: >=256 original channels flat; shoulder: +/-500 samples around core, minus core.",
+  "mask_semantics": "Half-open integer sample intervals; event-center selection; waveform windows may cross mask edges.",
+  "primary_annotations": "Retain peak/active guards and full-2048 broad/tight warnings; unavailable stays unknown. No automatic removal for these annotations.",
+  "sensitivity_only": [
+    "primary_peak_clear",
+    "primary_local8_clear"
+  ],
+  "rationale": "Shanks1/2 retain observed-event summaries with annotations; shank3 additionally omits demonstrated shared-loss episodes and a conservative operational shoulder. Neither domain is validated clean or a true-rate correction.",
+  "limitations": [
+    "Not definitive neuron identities or exhaustive recovery.",
+    "Shoulder duration is operational, not validated filter settling.",
+    "Eight nearest active electrodes are a diagnostic proxy, not measured unit footprint.",
+    "Residual clipping and shared disturbances can remain.",
+    "Short-bin, synchrony and event-triggered conclusions need specific checks; shared-loss gaps are not biological silence.",
+    "Shank0 frozen policy remains unchanged; combined release must disclose policy differences."
+  ],
+  "required_reporting": [
+    "Original and proposed counts with omitted event identities",
+    "Exact interval arrays and matching nominal/physical exposure",
+    "Quality flags and availability",
+    "Guard-clear rate sensitivities",
+    "Original run-qualified identities and sample axis"
+  ],
+  "pinned_files": {
+    "configs\\extra4_working_runs.v1.json": "de0bf7d4de56220cde1d14df6e7a9c43c2ed16c1f62064b8eaba8b6c3d4b622f",
+    "results\\extra4\\w14-quality01\\manifest.json": "061a47b2af23fcb85b5ac8ffde9ab4a9ea3bb955a93d272626d2c2de6b37e179",
+    "results\\extra4_shank3\\w15c-shared-review02\\report-manifest.json": "045e287f5817af3d3475dcb808593ac62cec3dfe209ce912fe0d13f58518a233",
+    "configs\\extra4_shank1_curation_w16a.proposed.json": "6240f34e901020af31feda16ab757d3b92109689e956a5ccdb173413136a938e",
+    "results\\extra4_shank1\\w15a-allchannels01\\output-manifest.json": "b714f930d0eb7dff405bbc262462ef41ddec2661c058e68fc44131b2a1c3ba18",
+    "results\\extra4_shank1\\w15a-baseline-review01\\report-manifest.json": "24088133ffdc10e3ca2f233389a6bb04cd124881ca0999b96af98c51ebddc42f",
+    "results\\extra4_shank1\\w16a-review01\\report-manifest.json": "a5d2fa5813914762dd95fe749d10b459032b60b6a381736edc286cb8ddec4bfd",
+    "configs\\extra4_shank2_curation_w16b.proposed.json": "3a9c0fb2b33eaed1806e8f39380a3e40165cf65e77b2fbfd3a45ff2f1daaa535",
+    "results\\extra4_shank2\\w15b-exclude54-14801\\output-manifest.json": "e8460a4e57b87ea9316c3e296b3a724a6b681283fb75a7bf23f831a24409b619",
+    "results\\extra4_shank2\\w15b-exclusion-review01\\report-manifest.json": "8104cd918af857cf65368694c228392d1d536fd5e4a7e77d3f20f3f62164682c",
+    "results\\extra4_shank2\\w16b-review01\\report-manifest.json": "b724ebeb90b1060f244361486d935591809ba62171ecaa9b7d7cce027c833850",
+    "configs\\extra4_shank3_curation_w16c.proposed.json": "2a226b417a603676cb52e5361c46fdfc4b2c0ac4277ce594418ab441b5ebc303",
+    "results\\extra4_shank3\\w15c-exclude25901\\output-manifest.json": "df6db935fab92a26b42dee92c990c967daec17cb5067334fe75a1663c2997184",
+    "results\\extra4_shank3\\w15c-exclusion-review01\\report-manifest.json": "860b1766a8798e33d2b63965b8706c836564e3755a47d5096ca988c64230a4f5",
+    "results\\extra4_shank3\\w16c-review01\\report-manifest.json": "cb9f6baca8c8c6ed6bfdf002847d99b1f632640ff7fe4873fe1a779551624502",
+    "scripts/prepare_w16d.py": "b65661eabe32cbdf9594a314a6a5117b71383718efe889b73cd90197aa033c65",
+    "scripts/validate_w16d.py": "fb36501e2b82e1b44e90439a2ee1625a48d6866827476120110c8710c8186fe0",
+    "results/extra4/w16d-proposal01/manifest.json": "c0da7355ce662b0e0eefb7cdf34fec9b07122374f386df34b67c17fd055ac09e",
+    "results/extra4/w16d-validation01/manifest.json": "c66495162f925c745695a0b97a25ecb7c7401825b66211184f2c98c8309c9979",
+    "docs/development/rounds/2026-11-24-13-w16d-acceptance-proposal.md": "5585cd8680ee4126e0f9992aeca5df2352dca0827d2aa48e79281e9c67d96c85",
+    "configs/extra4_shank0_release.v1.json": "15ab96fc1ff02fcfefe6c1f9ba7552564f905187456c4940a4d6a8dd1f825aec",
+    "configs/extra4_shank0_analysis_policy.v1.json": "aba7e39a7ba904a6433c3b5b2428c8903d2a3b95d44f2a7c6e212abb45e2842b"
+  },
+  "report": "results/extra4/w16d-proposal01",
+  "validation_report": "results/extra4/w16d-validation01"
+}
