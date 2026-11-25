@@ -1,0 +1,13 @@
+# extra_4 team-sharing summary
+
+Date: 2026-11-24. Presentation only; accepted scientific release v1 unchanged.
+
+The user requested a self-contained team PDF and supporting tables before W18. The [eight-page summary](../../../outputs/extra4-team-sharing-v1/extra4-team-summary.pdf) covers scope, selected runs, review methods, all decision counts and IDs, retained-event raster, illustrative quarter waveforms, analysis exposure and limitations, and a compact table of all 41 accepted units. The [portable ZIP](../../../outputs/extra4-team-sharing-v1.zip) adds the corrected unit workbook/CSV, column definitions, all 186 cluster decisions and reasons, 12 decision-summary rows, and an offline HTML table linking 48 copied historical waveform images. Extract the entire ZIP to preserve relative links. Event-level data and original recordings are not bundled.
+
+At the user's request, the summary explains that 89 held clusters may yield additional units. The 41-130 candidate-cluster envelope is explicitly conditional, not a statistical interval or bound on true neurons: holds can represent artifacts, duplicates or mixed populations, and accepted units remain putative. Hold review remains deferred. Historical reason and image wording is preserved and distinguished from current decisions.
+
+`scripts/build_extra4_team_report.py` reads frozen W17 and corrected presentation revision02, verifies both manifests, and uses the corrected common unit schema. It selects the lowest accepted ID on each shank as an explicitly illustrative waveform, using frozen quarter means already scaled by 1e6. Project Python creates the scientific figure; bundled ReportLab/pypdf builds and checks the PDF. No new curation or sorting is performed.
+
+Validation: 8 pages, 41 accepted units, 62,048 retained events, 186 uniquely identified clusters, 12 reconciled decision rows and 48 portable evidence images. Accepted identities match the full ledger; summary IDs/counts match every decision group. Source manifests verify unchanged, corrected workbook and CSV are copied byte-for-byte, ZIP CRC and payload hashes verify, and all 186 waveform references resolve inside the ZIP. All eight pages were rendered with Poppler and visually inspected, including table layout, figures and footers. The package manifest hashes delivered files; tracked metadata pins the builder and package. Preview images remain in ignored `outputs/extra4-team-sharing-qa`.
+
+Next: user review of the sharing summary, followed by W18 preservation/handoff. Generated package files remain outside Git; commit metadata/code separately from preserving the actual package. No commit or push was performed.

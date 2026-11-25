@@ -6,6 +6,8 @@ Start with the [roadmap](docs/development/roadmap.md) for current status, pendin
 
 | Need | Reference |
 | --- | --- |
+| Team-sharing summary | [PDF](outputs/extra4-team-sharing-v1/extra4-team-summary.pdf), [portable supporting package](outputs/extra4-team-sharing-v1.zip) |
+| Comprehensive report PDF | [Detailed report with waveform appendix](outputs/extra4-detailed-report-v1/extra4-comprehensive-report.pdf) |
 | Windows environments and storage | [Windows setup](docs/development/windows-setup.md) |
 | Reviewed four-shank extra_4 release v1 | [W17 report, revised](results/extra4/w17-report-revision02/index.html), [all 186 cluster decisions](docs/reviews/2026-11-24-w17-four-shank-ledger.csv), [release metadata](configs/extra4_release.v1.json) |
 | Review methods and output contracts | [Windows quality reference](docs/WINDOWS_QUALITY.md) |

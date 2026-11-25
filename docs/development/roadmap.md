@@ -43,6 +43,10 @@ Release requires complete cluster accounting, explicit subset/policy acceptance,
 
 ## Next work
 
+Also available: [comprehensive PDF with embedded waveform evidence](../../outputs/extra4-detailed-report-v1/extra4-comprehensive-report.pdf), [export record](rounds/2026-11-24-18-extra4-detailed-pdf.md). This is a presentation export; W18 preservation is still pending.
+
+The [team-sharing round](rounds/2026-11-24-17-extra4-team-sharing.md) is complete: [self-contained PDF](../../outputs/extra4-team-sharing-v1/extra4-team-summary.pdf) and [portable supporting package](../../outputs/extra4-team-sharing-v1.zip), with scientific v1 unchanged. Review this presentation, then proceed to W18 preservation/handoff as requested. Package provenance is in [sharing metadata](../../configs/extra4_team_sharing.v1.json).
+
 No additional sorting or curation round is automatically scheduled. Use the accepted release for a separately scoped analysis, or return to held clusters in a later focused review. Any unit/policy changes require a new accepted revision; preserve v1. Generated artifacts still require separate backup outside Git.
 
 ## Implementation references and boundaries

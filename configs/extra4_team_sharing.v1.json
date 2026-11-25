@@ -1,0 +1,19 @@
+{
+  "state": "validated",
+  "date": "2026-11-24",
+  "scientific_release": "extra4-reviewed-four-shank-v1",
+  "scientific_decisions_changed": false,
+  "pdf": "outputs/extra4-team-sharing-v1/extra4-team-summary.pdf",
+  "package": "outputs/extra4-team-sharing-v1.zip",
+  "pages": 8,
+  "units": 41,
+  "clusters": 186,
+  "analysis_events": 62048,
+  "visual_review": "All eight Poppler-rendered pages inspected",
+  "pinned_files": {
+    "scripts/build_extra4_team_report.py": "e0f739a0b282ed0311bfccf84dbfd9d604c4b21c3ea98fef14a53daea0b6b50d",
+    "docs/development/rounds/2026-11-24-17-extra4-team-sharing.md": "5409fdabaf0b68d6e9a68248bf5fa9d118e777c44fb40c40fae0d95abc2a29fd",
+    "outputs/extra4-team-sharing-v1/manifest.json": "522b5f5fa53911e818d34625b325431c600d1040c863ef6d021c05627030c867",
+    "outputs/extra4-team-sharing-v1.zip": "22a14e162563374842e36dd6b274ffda1bfab43c345b6fbb355e54a8a69cbe7f"
+  }
+}

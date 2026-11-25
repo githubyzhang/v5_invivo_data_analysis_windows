@@ -1,0 +1,20 @@
+{
+  "state": "validated",
+  "date": "2026-11-24",
+  "scientific_decisions_changed": false,
+  "checks": {
+    "pages": 63,
+    "cluster_reasons_verified": 186,
+    "evidence_figures": 48,
+    "internal_destinations": 48,
+    "tables": 5,
+    "report_images": 1,
+    "paragraphs": 25
+  },
+  "pinned_files": {
+    "scripts/build_extra4_detailed_pdf.py": "ff6754cfcb0ea9bd6ceae462737634f3873720ca74b262816a251ac2041f2309",
+    "results/extra4/w17-report-revision02/manifest.json": "dba172717024bafadbb86bbf17de72e46b2325bc13fe50d901062c1e05700490",
+    "outputs/extra4-detailed-report-v1/manifest.json": "000d10b64553533c46402e8d5408ef8b699069239cf165ca466c485b2d3f3165",
+    "outputs/extra4-detailed-report-v1/extra4-comprehensive-report.pdf": "f01b3cf9a008796349edb3125bbca37fafac82ea6aa4510feebaae791fb6af16"
+  }
+}
